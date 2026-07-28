@@ -40,8 +40,8 @@ export const FIRM_INFO = {
   name: 'Protección Familiar & Asociados',
   tagline: 'Defensa Legal Exclusiva y Protección Integral para Tu Familia y Patrimonio',
   description: 'Más de 18 años brindando asesoría jurídica estratégica, representación de alto nivel y soluciones definitivas en derecho familiar, civil, penal y corporativo.',
-  phone: '+52 (55) 8439-9000',
-  emergencyPhone: '+52 (55) 9110-0900',
+  phone: '+57 315 354 0285',
+  emergencyPhone: '+57 315 354 0285',
   email: 'contacto@proteccionfamiliar.law',
   address: 'Av. Paseo de la Reforma 483, Piso 24, Juárez, Ciudad de México',
   workingHours: 'Lunes a Viernes: 8:00 AM - 7:00 PM | Emergencias 24/7',
@@ -151,7 +151,7 @@ export const ATTORNEYS: Attorney[] = [
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600',
     bio: 'Especialista reconocida a nivel nacional en solución de controversias familiares complejas y mediación de custodia infantil con enfoque en el interés superior de la infancia.',
     email: 'svalenzuela@proteccionfamiliar.law',
-    phone: '+52 (55) 8439-9001'
+    phone: '+57 315 354 0285'
   },
   {
     id: 'alejandro-mendoza',
@@ -163,7 +163,7 @@ export const ATTORNEYS: Attorney[] = [
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600',
     bio: 'Experto en estructuración de patrimonios familiares, fideicomisos y controversias sucesorias de alto impacto económico para grupos familiares e inversionistas.',
     email: 'amendoza@proteccionfamiliar.law',
-    phone: '+52 (55) 8439-9002'
+    phone: '+57 315 354 0285'
   },
   {
     id: 'carlos-morales',
@@ -175,7 +175,7 @@ export const ATTORNEYS: Attorney[] = [
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600',
     bio: 'Líder del equipo de respuesta inmediata 24/7. Ha litigado con éxito en más de 300 audiencias penales complejas y obtenido amparos definitivos estratégicos.',
     email: 'cmorales@proteccionfamiliar.law',
-    phone: '+52 (55) 8439-9003'
+    phone: '+57 315 354 0285'
   },
   {
     id: 'elena-ramirez',
@@ -187,7 +187,7 @@ export const ATTORNEYS: Attorney[] = [
     image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=600',
     bio: 'Asesora legal para la transición generacional de empresas familiares, fusiones corporativas y cumplimiento de normativas de trabajo y privacidad de datos.',
     email: 'eramirez@proteccionfamiliar.law',
-    phone: '+52 (55) 8439-9004'
+    phone: '+57 315 354 0285'
   }
 ];
 
@@ -232,7 +232,7 @@ export const FAQS: FAQItem[] = [
   {
     category: 'Urgencias',
     question: '¿Qué debo hacer en caso de una detención o emergencia penal inmediata?',
-    answer: 'Puedes marcar a nuestra línea directiva de emergencias 24/7 (+52 55 9110-0900). Uno de nuestros abogados penalistas de guardia se constituirá al instante en la fiscalía correspondiente.'
+    answer: 'Puedes marcar a nuestra línea directiva de emergencias 24/7 (+57 315 354 0285). Uno de nuestros abogados penalistas de guardia se constituirá al instante en la fiscalía correspondiente.'
   },
   {
     category: 'Confidencialidad',

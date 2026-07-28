@@ -1,4 +1,4 @@
-﻿import { Scale, Phone, Mail, MapPin, Shield, Clock } from 'lucide-react';
+﻿import { Scale, Phone, Mail, MapPin, Shield, Clock, MessageSquare } from 'lucide-react';
 import { FIRM_INFO } from '@/lib/data';
 
 export default function Footer() {
@@ -52,7 +52,18 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={'tel:' + FIRM_INFO.phone} className="hover:text-white transition-colors">{FIRM_INFO.phone}</a>
+                <a href={'tel:' + FIRM_INFO.phone.replace(/\s+/g, '')} className="hover:text-white transition-colors">{FIRM_INFO.phone}</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                <a
+                  href="https://wa.me/573153540285?text=Hola,%20deseo%20solicitar%20asesor%C3%ADa%20legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 hover:underline font-semibold"
+                >
+                  WhatsApp: +57 315 354 0285
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
@@ -66,21 +77,31 @@ export default function Footer() {
           </div>
 
           {/* Col 4 */}
-          <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+          <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4">
             <div>
               <h4 className="text-amber-400 font-bold text-sm mb-2 flex items-center gap-2">
-                <Phone className="w-4 h-4 animate-bounce" /> Línea de Crisis Legal
+                <Phone className="w-4 h-4 animate-bounce" /> Línea de Crisis Legal & WhatsApp
               </h4>
-              <p className="text-xs text-slate-300 mb-4">
-                Atención jurídica inmediata en situaciones de detención o contingencias urgentes las 24 horas del día.
+              <p className="text-xs text-slate-300 mb-2">
+                Atención jurídica inmediata las 24 horas del día.
               </p>
             </div>
-            <a
-              href={'tel:' + FIRM_INFO.emergencyPhone}
-              className="w-full py-2.5 px-4 text-center text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-md transition-colors block uppercase tracking-wide"
-            >
-              Llamar Ahora: {FIRM_INFO.emergencyPhone}
-            </a>
+            <div className="space-y-2">
+              <a
+                href="https://wa.me/573153540285?text=Hola,%20tengo%20una%20emergencia%20legal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 text-center text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2 uppercase tracking-wide"
+              >
+                <MessageSquare className="w-4 h-4" /> WhatsApp Inmediato
+              </a>
+              <a
+                href={'tel:' + FIRM_INFO.phone.replace(/\s+/g, '')}
+                className="w-full py-2.5 px-4 text-center text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-md transition-colors block uppercase tracking-wide"
+              >
+                Llamar: {FIRM_INFO.phone}
+              </a>
+            </div>
           </div>
         </div>
 

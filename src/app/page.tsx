@@ -16,7 +16,8 @@ import {
   Calendar,
   Lock,
   Scale,
-  Sparkles
+  Sparkles,
+  MessageSquare
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -58,7 +59,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950 relative">
       <Navbar onOpenConsultation={() => { setSelectedAreaId(undefined); setIsConsultationOpen(true); }} />
 
       <main className="flex-1">
@@ -72,7 +73,7 @@ export default function Home() {
             <div className="text-center max-w-3xl mx-auto space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-inner">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>Defensa Legal Strategics & Alta Eficiencia</span>
+                <span>Defensa Legal Estratégica & Alta Eficiencia</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif text-white leading-[1.15]">
@@ -92,11 +93,13 @@ export default function Home() {
                   Agendar Primera Consulta Gratuita
                 </button>
                 <a
-                  href={`tel:${FIRM_INFO.emergencyPhone}`}
-                  className="w-full sm:w-auto px-7 py-4 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2"
+                  href="https://wa.me/573153540285?text=Hola,%20deseo%20solicitar%20asesor%C3%ADa%20legal%20inmediata"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-7 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
                 >
-                  <PhoneCall className="w-4 h-4 text-amber-400 animate-pulse" />
-                  Urgencias 24/7: {FIRM_INFO.emergencyPhone}
+                  <MessageSquare className="w-4 h-4" />
+                  WhatsApp Directo: +57 315 354 0285
                 </a>
               </div>
 
@@ -320,13 +323,22 @@ export default function Home() {
             <p className="text-sm text-slate-300 max-w-2xl mx-auto">
               Nuestra unidad de guardia penal y amparos opera las 24 horas del día, los 365 días del año.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`tel:${FIRM_INFO.emergencyPhone}`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-sm rounded-xl shadow-xl shadow-amber-500/20 transition-all hover:scale-105"
+                href="https://wa.me/573153540285?text=Hola,%20requiero%20asistencia%20legal%20urgente"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-xl shadow-emerald-600/20 transition-all hover:scale-105"
+              >
+                <MessageSquare className="w-5 h-5" />
+                WhatsApp Directo 24/7: +57 315 354 0285
+              </a>
+              <a
+                href={'tel:' + FIRM_INFO.phone.replace(/\s+/g, '')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-sm rounded-xl shadow-xl shadow-amber-500/20 transition-all hover:scale-105"
               >
                 <PhoneCall className="w-5 h-5 animate-pulse" />
-                Llamada Inmediata 24/7: {FIRM_INFO.emergencyPhone}
+                Llamar Ahora: {FIRM_INFO.phone}
               </a>
             </div>
           </div>
@@ -334,6 +346,20 @@ export default function Home() {
       </main>
 
       <Footer />
+
+      {/* FLOATING WHATSAPP BUTTON */}
+      <a
+        href="https://wa.me/573153540285?text=Hola,%20deseo%20solicitar%20asesor%C3%ADa%20legal"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-400 text-slate-950 p-4 rounded-full shadow-2xl shadow-emerald-500/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center border-2 border-emerald-300 group"
+        title="Hablar por WhatsApp (+57 315 354 0285)"
+      >
+        <MessageSquare className="w-7 h-7 fill-slate-950 text-slate-950" />
+        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-bold text-xs pl-0 group-hover:pl-2 text-slate-950 font-sans">
+          Chat WhatsApp
+        </span>
+      </a>
 
       {/* MODALS */}
       <ConsultationModal
