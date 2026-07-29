@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, 
   Calendar, 
@@ -181,7 +182,15 @@ export default function BookingSection() {
           </div>
 
           {!isSubmitted ? (
-            <div className="pt-4 space-y-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStep}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="pt-4 space-y-8"
+              >
               
               {/* STEP 1: ESPECIALIDAD / ASUNTO */}
               {currentStep === 1 && (
@@ -449,7 +458,8 @@ export default function BookingSection() {
                 </div>
               )}
 
-            </div>
+            </motion.div>
+            </AnimatePresence>
           ) : (
             /* Confirmation Screen */
             <div className="py-8 text-center space-y-6">

@@ -14,6 +14,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingSection from '@/components/BookingSection';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
+import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
 import { FIRM_INFO, ATTORNEYS } from '@/lib/data';
 
 interface CaliFaq {
@@ -139,7 +140,7 @@ export default function CaliClient({ caliFaqs }: CaliClientProps) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-[#FAF8F5] border border-[#E5DFD5] p-6 rounded-2xl space-y-3">
                 <Building2 className="w-8 h-8 text-[#0B2818]" />
                 <h4 className="text-lg font-serif font-bold text-[#1A1A1A]">Notarías de Cali</h4>
@@ -163,7 +164,7 @@ export default function CaliClient({ caliFaqs }: CaliClientProps) {
                   Consultas interactivas en vivo para ejecutivos y residentes en Cali con envío digital de documentos.
                 </p>
               </div>
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
