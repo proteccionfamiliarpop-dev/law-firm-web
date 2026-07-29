@@ -19,7 +19,11 @@ import {
   MessageSquare,
   MapPin,
   BookOpen,
-  GraduationCap
+  GraduationCap,
+  ExternalLink,
+  Lock,
+  Building,
+  Check
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -63,84 +67,139 @@ export default function Home() {
   const directorAttorney = ATTORNEYS.find(a => a.id === 'alexander-solano') || ATTORNEYS[0];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950 relative">
+    <div className="min-h-screen bg-[#050811] text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950 relative">
       <Navbar onOpenConsultation={() => { setSelectedAreaId(undefined); setIsConsultationOpen(true); }} />
 
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden border-b border-slate-800/60">
-          {/* Ambient Glowing Background Lights */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-0 right-10 w-[450px] h-[280px] bg-blue-600/10 rounded-full blur-[130px] pointer-events-none" />
+        {/* HERO SECTION - WORLD CLASS EXECUTIVE GRID */}
+        <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden border-b border-amber-500/15">
+          {/* Ambient Lighting Gradients */}
+          <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-4xl mx-auto space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-inner">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>Popayán (Cra 8 #2-44 Of 313) • Cali • Cobertura Nacional</span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              {/* Left Column: Value Proposition & SEO */}
+              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-inner">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Popayán (Cra 8 #2-44 Of 313) • Cali • Cobertura Nacional</span>
+                </div>
+
+                {/* H1 SEO TARGETED */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif text-white leading-[1.15]">
+                  Abogado de Familia & Civil en Popayán y Cali <br />
+                  <span className="gold-gradient-text">Dr. Alexander Solano</span>
+                </h1>
+
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
+                  Defensa legal estratégica y solución definitiva de controversias familiares, sucesiones, divorcios, custodia y contratos civiles en Popayán, Cali y Colombia.
+                </p>
+
+                {/* Director Badges */}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 text-xs text-amber-300 font-semibold pt-1">
+                  <span className="bg-amber-500/10 border border-amber-500/25 px-3 py-1 rounded-lg flex items-center gap-1.5">
+                    <GraduationCap className="w-4 h-4 text-amber-400" /> Cand. Doctor en Derecho
+                  </span>
+                  <span className="bg-amber-500/10 border border-amber-500/25 px-3 py-1 rounded-lg flex items-center gap-1.5">
+                    <BookOpen className="w-4 h-4 text-amber-400" /> Autor & Jurista Académico
+                  </span>
+                  <span className="bg-amber-500/10 border border-amber-500/25 px-3 py-1 rounded-lg flex items-center gap-1.5">
+                    <Award className="w-4 h-4 text-amber-400" /> Conciliador Oficial
+                  </span>
+                </div>
+
+                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                  <button
+                    onClick={() => setIsConsultationOpen(true)}
+                    className="w-full sm:w-auto px-8 py-4 gold-gradient-bg text-slate-950 font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-xl shadow-amber-500/25 hover:scale-[1.03] active:scale-[0.97] transition-all flex items-center justify-center gap-2"
+                  >
+                    <Calendar className="w-4 h-4 text-slate-950" />
+                    Agendar Cita en Google Calendar
+                  </button>
+                  <a
+                    href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20solicitar%20asesor%C3%ADa%20legal%20en%20Popay%C3%A1n/Cali"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-7 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    WhatsApp Directo: +57 315 354 0285
+                  </a>
+                </div>
+
+                <div className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Secreto Profesional Blindado
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Atención en Popayán & Cali
+                  </span>
+                </div>
               </div>
 
-              {/* H1 SEO TARGETED */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif text-white leading-[1.15]">
-                Abogado de Familia & Civil en Popayán y Cali | <span className="gold-gradient-text">Dr. Alexander Solano</span>
-              </h1>
+              {/* Right Column: Executive Director Portrait Showcase */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative group w-full max-w-md">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-600 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
+                  
+                  <div className="relative bg-slate-900 border border-amber-500/40 rounded-3xl p-6 shadow-2xl space-y-5">
+                    <div className="relative h-80 rounded-2xl overflow-hidden">
+                      <img
+                        src={directorAttorney.image}
+                        alt={directorAttorney.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-amber-300 bg-slate-950/80 border border-amber-500/30 px-3 py-1 rounded-lg backdrop-blur-md">
+                          18+ Años de Experiencia
+                        </span>
+                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-1 rounded-lg backdrop-blur-md flex items-center gap-1">
+                          ● En Línea
+                        </span>
+                      </div>
+                    </div>
 
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
-                Protección integral para tu familia y patrimonio. Asesoría jurídica estratégica, representación de alto nivel ante juzgados de familia y civiles en Popayán, Cali y Colombia.
-              </p>
+                    <div className="space-y-2 text-center">
+                      <h3 className="text-xl font-bold font-serif text-white">{directorAttorney.name}</h3>
+                      <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider">{directorAttorney.role}</p>
+                      <p className="text-xs text-slate-300 leading-relaxed font-serif italic">
+                        "Comprometidos con la excelencia integral en servicios jurídicos especializados y la protección de los intereses de nuestros clientes."
+                      </p>
+                    </div>
 
-              <div className="pt-2 flex flex-wrap justify-center items-center gap-3 text-xs text-amber-300 font-semibold">
-                <span className="bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-md flex items-center gap-1.5">
-                  <GraduationCap className="w-4 h-4 text-amber-400" /> Cand. Doctor en Derecho
-                </span>
-                <span className="bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-md flex items-center gap-1.5">
-                  <BookOpen className="w-4 h-4 text-amber-400" /> Autor e Investigador Jurídico
-                </span>
-                <span className="bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-md flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-amber-400" /> Popayán (Centro) & Cali
-                </span>
+                    <div className="pt-2 border-t border-slate-800 flex items-center justify-between gap-3 text-xs">
+                      <button
+                        onClick={() => setActiveAttorneyModal(directorAttorney)}
+                        className="w-full py-2.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-amber-300 font-bold rounded-xl transition-colors text-center text-xs"
+                      >
+                        Ver Ficha & Obras
+                      </button>
+                      <a
+                        href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20consultar%20mi%20caso"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-colors text-center text-xs flex items-center justify-center gap-1"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" /> WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button
-                  onClick={() => setIsConsultationOpen(true)}
-                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-xl shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
-                >
-                  <Calendar className="w-4 h-4" />
-                  Agendar Cita en Google Calendar
-                </button>
-                <a
-                  href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20solicitar%20asesor%C3%ADa%20legal%20en%20Popay%C3%A1n/Cali"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-7 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  WhatsApp Directo: +57 315 354 0285
-                </a>
-              </div>
-
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Secreto Profesional Blindado
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Conciliador Oficial en Derecho
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Cra 8 #2-44 Of 313, Popayán
-                </span>
-              </div>
             </div>
 
             {/* STATS STRIP */}
             <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
               {FIRM_INFO.stats.map((stat, idx) => (
-                <div key={idx} className="bg-slate-900/70 backdrop-blur-md border border-slate-800/80 p-6 rounded-2xl text-center hover:border-amber-500/40 transition-colors shadow-lg">
+                <div key={idx} className="gold-glow-card p-6 rounded-2xl text-center transition-all">
                   <div className="text-3xl sm:text-4xl font-extrabold font-serif text-white gold-gradient-text mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                     {stat.label}
                   </div>
                 </div>
@@ -149,71 +208,80 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DIRECTOR FEATURED SECTION */}
-        <section className="py-16 bg-gradient-to-b from-slate-950 via-slate-900/60 to-slate-950 border-b border-slate-800/60">
+        {/* DIRECTOR ACADEMIC & RESEARCH SHOWCASE SECTION */}
+        <section id="director" className="py-20 bg-slate-950/80 border-b border-amber-500/15">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+            <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-amber-500/30 rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
                 <div className="lg:col-span-4 flex justify-center">
-                  <div className="relative group">
+                  <div className="relative">
                     <img
                       src={directorAttorney.image}
                       alt={directorAttorney.name}
-                      className="w-64 h-80 sm:w-72 sm:h-96 object-cover rounded-2xl border-2 border-amber-500/40 shadow-2xl group-hover:scale-[1.02] transition-transform duration-300"
+                      className="w-64 h-80 sm:w-72 sm:h-96 object-cover rounded-2xl border-2 border-amber-500/40 shadow-2xl"
                     />
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
                     <div className="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md border border-amber-500/30 p-3 rounded-xl text-center">
                       <p className="text-xs font-bold text-amber-300">Dr. Alexander Solano</p>
-                      <p className="text-[10px] text-slate-300 font-medium">Socio Director & Fundador</p>
+                      <p className="text-[10px] text-slate-300 font-medium">Cand. Doctor en Derecho • Magíster</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:col-span-8 space-y-5">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
-                    <Award className="w-4 h-4 text-amber-400" /> Dirección Jurídica del Bufete
+                    <Award className="w-4 h-4 text-amber-400" /> Dirección Jurídica & Investigación Académica
                   </div>
 
                   <h2 className="text-2xl sm:text-4xl font-extrabold font-serif text-white leading-tight">
-                    Dr. Alexander Solano — <span className="gold-gradient-text">Especialista en Derecho de Familia & Conciliador</span>
+                    Dr. Alexander Solano — <span className="gold-gradient-text">Especialista en Derecho de Familia & Conciliación</span>
                   </h2>
 
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                     {directorAttorney.bio}
                   </p>
 
-                  <div className="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl space-y-3">
+                  <div className="bg-slate-950/90 border border-slate-800 p-5 rounded-2xl space-y-3 shadow-inner">
                     <h3 className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
-                      <BookOpen className="w-4 h-4" /> Producción Académica & Obras Destacadas
+                      <BookOpen className="w-4 h-4 text-amber-400" /> Libros & Artículos de Investigación Publicados
                     </h3>
-                    <ul className="space-y-2 text-xs text-slate-200">
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold">•</span>
-                        <span><strong>Libro (2ª Ed.):</strong> La construcción de la identidad al interior de la familia asistida: pugnas históricas, sociales y jurídicas colombianas (Uniautónoma).</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold">•</span>
-                        <span><strong>Libro:</strong> La investigación jurídica en perspectiva multidisciplinar: aportes para la comprensión de realidades sociales, políticas y jurídicas.</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold">•</span>
-                        <span><strong>Artículos Científicos:</strong> Investigaciones publicadas en ResearchGate y Sci-Cult sobre resiliencia familiar en el conflicto armado e identidad posmoderna en el derecho colombiano.</span>
-                      </li>
-                    </ul>
+
+                    <div className="space-y-2.5 text-xs text-slate-200">
+                      {directorAttorney.publications?.map((pub, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 gap-2">
+                          <div className="space-y-0.5">
+                            <span className="text-[10px] font-bold text-amber-400 uppercase bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded inline-block mr-2">
+                              {pub.type}
+                            </span>
+                            <span className="font-medium text-slate-200">{pub.title}</span>
+                          </div>
+                          {pub.url && (
+                            <a
+                              href={pub.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[11px] text-amber-300 hover:underline font-bold flex items-center gap-1 shrink-0"
+                            >
+                              Ver Repositorio <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="pt-2 flex flex-col sm:flex-row gap-3">
                     <button
                       onClick={() => setActiveAttorneyModal(directorAttorney)}
-                      className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 transition-colors"
+                      className="px-6 py-3 gold-gradient-bg text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform hover:scale-[1.02]"
                     >
-                      Ver Perfil Profesional & Publicaciones
+                      Ver Ficha Profesional Completa
                     </button>
                     <button
                       onClick={() => setIsConsultationOpen(true)}
-                      className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition-colors"
+                      className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition-colors"
                     >
                       Agendar Consulta Directa con el Dr. Solano
                     </button>
@@ -228,13 +296,13 @@ export default function Home() {
         <section id="servicios" className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="text-xs font-bold text-amber-400 uppercase tracking-widest font-serif">
-              Soluciones Jurídicas en Popayán y Cali
+              Soluciones Jurídicas Especializadas en Popayán y Cali
             </h2>
             <h2 className="text-3xl sm:text-4xl font-bold font-serif text-white">
-              Nuestras Áreas de Práctica Especializada
+              Nuestras Áreas de Práctica Jurídica
             </h2>
             <p className="text-sm text-slate-400">
-              Servicios jurídicos integrales con el sello de rigor académico e intervención estratégica ante los juzgados de Popayán, Cali y Colombia.
+              Servicios legales integrales con el respaldo del Dr. Alexander Solano e intervención ante tribunales en el Cauca, Valle del Cauca y Colombia.
             </p>
           </div>
 
@@ -242,10 +310,10 @@ export default function Home() {
             {PRACTICE_AREAS.map((area) => (
               <div
                 key={area.id}
-                className="bg-slate-900/70 border border-slate-800/80 rounded-2xl p-7 hover:border-amber-500/40 hover:bg-slate-900 transition-all group flex flex-col justify-between shadow-lg"
+                className="gold-glow-card rounded-2xl p-7 flex flex-col justify-between group shadow-xl"
               >
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
                     {getIconComponent(area.iconName)}
                   </div>
                   <h3 className="text-xl font-bold text-white font-serif mb-3 group-hover:text-amber-300 transition-colors">
@@ -256,7 +324,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-800/60 flex items-center justify-between">
+                <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
                   <button
                     onClick={() => setActivePracticeModalArea(area)}
                     className="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1 transition-colors"
@@ -277,17 +345,17 @@ export default function Home() {
         </section>
 
         {/* ATTORNEYS / TEAM */}
-        <section id="abogados" className="py-20 lg:py-28 bg-slate-900/40 border-y border-slate-800/60">
+        <section id="equipo" className="py-20 lg:py-28 bg-slate-950/60 border-y border-slate-800/60">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
               <h2 className="text-xs font-bold text-amber-400 uppercase tracking-widest font-serif">
-                Equipo Especializado
+                Equipo de Alto Nivel
               </h2>
               <h2 className="text-3xl sm:text-4xl font-bold font-serif text-white">
                 Abogados Titulares & Consultores
               </h2>
               <p className="text-sm text-slate-400">
-                Profesionales certificados con amplia trayectoria ante juzgados y tribunales en el Cauca y Valle del Cauca.
+                Profesionales certificados con amplia experiencia ante juzgados de familia y civiles en el Cauca y Valle del Cauca.
               </p>
             </div>
 
@@ -295,14 +363,14 @@ export default function Home() {
               {ATTORNEYS.map((attorney) => (
                 <div
                   key={attorney.id}
-                  className="bg-slate-950 border border-slate-800/90 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all group shadow-xl flex flex-col justify-between"
+                  className="bg-slate-900 border border-slate-800/90 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all group shadow-xl flex flex-col justify-between"
                 >
                   <div>
                     <div className="relative h-64 overflow-hidden">
                       <img
                         src={attorney.image}
                         alt={attorney.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
                       <div className="absolute bottom-3 left-4 right-4">
@@ -323,7 +391,7 @@ export default function Home() {
                   <div className="p-5 pt-0">
                     <button
                       onClick={() => setActiveAttorneyModal(attorney)}
-                      className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-bold text-slate-200 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+                      className="w-full py-2.5 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-xs font-bold text-slate-200 rounded-lg transition-colors flex items-center justify-center gap-1.5"
                     >
                       Ver Perfil Profesional
                     </button>
@@ -347,7 +415,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TESTIMONIALS.map((t) => (
-              <div key={t.id} className="bg-slate-900/60 border border-slate-800 p-7 rounded-2xl flex flex-col justify-between space-y-4">
+              <div key={t.id} className="gold-glow-card p-7 rounded-2xl flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center gap-1 text-amber-400">
                     {[...Array(t.rating)].map((_, i) => (
@@ -371,7 +439,7 @@ export default function Home() {
         </section>
 
         {/* FAQ ACCORDION */}
-        <section id="faq" className="py-20 lg:py-28 bg-slate-900/40 border-t border-slate-800/60">
+        <section id="faq" className="py-20 lg:py-28 bg-slate-950/60 border-t border-slate-800/60">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
               <h2 className="text-xs font-bold text-amber-400 uppercase tracking-widest font-serif">
@@ -388,7 +456,7 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden transition-all"
+                    className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden transition-all"
                   >
                     <button
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
@@ -410,9 +478,9 @@ export default function Home() {
         </section>
 
         {/* LOCATION ADDRESS MAP STRIP */}
-        <section className="py-16 bg-slate-950 border-t border-slate-800">
+        <section id="ubicacion" className="py-16 bg-slate-950 border-t border-slate-800">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-slate-900 border border-amber-500/30 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-amber-500/30 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
               <div className="space-y-2 text-center md:text-left">
                 <div className="inline-flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
                   <MapPin className="w-4 h-4" /> Despacho Principal en Popayán
@@ -425,12 +493,12 @@ export default function Home() {
                 </p>
               </div>
               <a
-                href="https://wa.me/573153540285?text=Hola,%20deseo%20coordinar%20visita%20a%20la%20oficina%20en%20Popay%C3%A1n"
+                href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20coordinar%20visita%20a%20la%20oficina%20en%20Popay%C3%A1n"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs rounded-xl shadow-lg shrink-0 transition-colors flex items-center gap-2"
+                className="px-6 py-3 gold-gradient-bg text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shrink-0 transition-transform hover:scale-[1.02] flex items-center gap-2"
               >
-                <MessageSquare className="w-4 h-4" /> Coordinar Cita Presencial
+                <MessageSquare className="w-4 h-4 text-slate-950" /> Coordinar Cita Presencial
               </a>
             </div>
           </div>
@@ -450,16 +518,16 @@ export default function Home() {
                 href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20requiero%20asistencia%20legal%20urgente"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-xl shadow-emerald-600/20 transition-all hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-xl shadow-emerald-600/20 transition-all hover:scale-105"
               >
                 <MessageSquare className="w-5 h-5" />
                 WhatsApp Directo 24/7: +57 315 354 0285
               </a>
               <a
                 href={'tel:' + FIRM_INFO.phone.replace(/\s+/g, '')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-sm rounded-xl shadow-xl shadow-amber-500/20 transition-all hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 gold-gradient-bg text-slate-950 font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-xl shadow-amber-500/20 transition-all hover:scale-105"
               >
-                <PhoneCall className="w-5 h-5 animate-pulse" />
+                <PhoneCall className="w-5 h-5 animate-pulse text-slate-950" />
                 Llamar Ahora: {FIRM_INFO.phone}
               </a>
             </div>
