@@ -31,6 +31,7 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingSection from '@/components/BookingSection';
+import LegalCalculator from '@/components/LegalCalculator';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
 import PracticeAreaModal from '@/components/PracticeAreaModal';

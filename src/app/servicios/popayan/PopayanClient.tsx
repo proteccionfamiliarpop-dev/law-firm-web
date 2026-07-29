@@ -13,6 +13,7 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BookingSection from '@/components/BookingSection';
+import LegalCalculator from '@/components/LegalCalculator';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
 import { FIRM_INFO, ATTORNEYS } from '@/lib/data';
@@ -167,6 +168,9 @@ export default function PopayanClient({ popayanFaqs }: PopayanClientProps) {
             </StaggerContainer>
           </div>
         </section>
+
+        {/* SIGNATURE FEATURE: LEGAL CALCULATOR */}
+        <LegalCalculator />
 
         {/* EMBEDDED BOOKING SECTION */}
         <BookingSection />
