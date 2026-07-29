@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test:gatekeeper": "npx tsx scripts/validateQualityGate.ts",
-    "content-os:audit": "npx tsx scripts/runContentOSPipeline.ts"
+    "content-os:audit": "npx tsx scripts/runContentOSPipeline.ts",
+    "lie:test": "npx tsx tests/lie/lie.test.ts"
   },
   "dependencies": {
     "autoprefixer": "^10.5.4",
