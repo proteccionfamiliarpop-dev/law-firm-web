@@ -16,6 +16,7 @@ import Footer from '@/components/Footer';
 import BookingSection from '@/components/BookingSection';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 import InternalLinkEngine, { KnowledgeBreadcrumbs } from '@/components/InternalLinkEngine';
+import AIGenerativeEngineCard from '@/components/AIGenerativeEngineCard';
 import { 
   getKnowledgeNode, 
   getNodesByCluster, 
@@ -189,6 +190,11 @@ export default function KnowledgeNodePage({ params }: PageProps) {
                 ))}
               </div>
             </section>
+          )}
+
+          {/* GENERATIVE ENGINE OPTIMIZATION (GEO) 10 QUESTIONS CARD */}
+          {node.aiQaList && (
+            <AIGenerativeEngineCard topicTitle={node.title} qaList={node.aiQaList} />
           )}
 
           {/* AUTOMATIC TOPIC CLUSTER INTERNAL LINK ENGINE */}

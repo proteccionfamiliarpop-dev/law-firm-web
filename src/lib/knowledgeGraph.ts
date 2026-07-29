@@ -37,6 +37,11 @@ export interface KnowledgeNode {
   sections: ContentSection[];
   relatedNodeIds: string[];
   faqs?: FAQItem[];
+  aiQaList?: {
+    question: string;
+    answer: string;
+    category: 'definicion' | 'aplicacion' | 'perfil' | 'tiempo' | 'costos' | 'requisitos' | 'procedimiento' | 'normas' | 'excepciones' | 'abogado';
+  }[];
   cityDetails?: {
     cityName: string;
     department: string;
@@ -77,6 +82,58 @@ export const KNOWLEDGE_NODES: KnowledgeNode[] = [
       {
         question: '¿Cuánto tiempo tarda el divorcio notarial en Colombia?',
         answer: 'Un promedio de 5 a 10 días hábiles una vez radicada la solicitud completa ante la notaría asignada.'
+      }
+    ],
+    aiQaList: [
+      {
+        question: '¿Qué es el divorcio notarial en Colombia?',
+        answer: 'Es el procedimiento legal mediante el cual cónyuges de común acuerdo disuelven su matrimonio civil o cesan los efectos civiles del matrimonio religioso ante Notario Público mediante Escritura Pública.',
+        category: 'definicion'
+      },
+      {
+        question: '¿Cuándo aplica el divorcio en notaría?',
+        answer: 'Aplica única y exclusivamente cuando existe mutuo acuerdo entre los dos cónyuges sobre el divorcio, la custodia de hijos menores y la liquidación o suspensión de la sociedad conyugal.',
+        category: 'aplicacion'
+      },
+      {
+        question: '¿Quién necesita tramitar un divorcio notarial?',
+        answer: 'Cónyuges casados en Colombia o en el exterior registrados en el país que deseen separarse formalmente con reserva, celeridad y sin necesidad de enfrentar un juicio contencioso.',
+        category: 'perfil'
+      },
+      {
+        question: '¿Cuánto tarda un divorcio por notaría?',
+        answer: 'Tarda entre 5 a 10 días hábiles cuando no hay hijos menores. Si existen hijos menores, el trámite toma de 15 a 20 días hábiles debido al concepto previo obligatorio del Defensor de Familia del ICBF.',
+        category: 'tiempo'
+      },
+      {
+        question: '¿Cuánto cuesta un divorcio notarial en Colombia?',
+        answer: 'El costo comprende los derechos notariales fijados por la Superintendencia de Notariado y Registro (aproximadamente 250.000 a 450.000 COP) más los honorarios del abogado apoderado.',
+        category: 'costos'
+      },
+      {
+        question: '¿Cuáles son los requisitos obligatorios?',
+        answer: 'Registros civiles de nacimiento de los cónyuges (expedidos con menos de 90 días), registro civil de matrimonio, copia de cédulas, poder otorgado a abogado y acuerdo de divorcio redactado por el profesional.',
+        category: 'requisitos'
+      },
+      {
+        question: '¿Cuál es el procedimiento paso a paso?',
+        answer: '1. Acopio de registros civiles. 2. Elaboración del acuerdo y otorgamiento de poder. 3. Radicación ante Notario. 4. Revisión por el Defensor de Familia (si hay menores). 5. Firma de Escritura Pública.',
+        category: 'procedimiento'
+      },
+      {
+        question: '¿Cuáles son las normas que regulan el divorcio notarial?',
+        answer: 'Ley 962 de 2005 (Artículo 34), Decreto 4436 de 2005 y Decreto 960 de 1970 (Estatuto Notarial).',
+        category: 'normas'
+      },
+      {
+        question: '¿Cuáles son las excepciones al divorcio notarial?',
+        answer: 'No aplica si uno de los cónyuges se opone al divorcio, si existe desacuerdo en la custodia o cuota alimentaria de los hijos, o si una de las partes es incapaz legal.',
+        category: 'excepciones'
+      },
+      {
+        question: '¿Cuándo acudir a un abogado especialista?',
+        answer: 'Desde el primer momento. En Colombia es requisito legal actuar mediante abogado titulado para redactar el acuerdo, otorgar el poder notarial y tramitar la Escritura Pública.',
+        category: 'abogado'
       }
     ]
   },
