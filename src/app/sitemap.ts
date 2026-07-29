@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { KNOWLEDGE_NODES } from '@/lib/knowledgeGraph';
 import { KNOWLEDGE_ARTICLES, KNOWLEDGE_CATEGORIES } from '@/lib/knowledgeCenter';
+import { PREMIUM_RESOURCES } from '@/lib/resourcesLibrary';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://proteccionfamiliar.co';
@@ -12,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-07-29'),
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/dr-alexander-solano`,
+      lastModified: new Date('2026-07-29'),
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/centro-de-conocimiento`,
@@ -50,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // Knowledge Center Categories
+  // Knowledge Center Categories & Articles
   const kcCategoryRoutes: MetadataRoute.Sitemap = KNOWLEDGE_CATEGORIES.map((cat) => ({
     url: `${baseUrl}/centro-de-conocimiento/${cat.slug}`,
     lastModified: new Date('2026-07-29'),
@@ -58,7 +65,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // Knowledge Center Articles (Scalable to thousands of articles)
   const kcArticleRoutes: MetadataRoute.Sitemap = KNOWLEDGE_ARTICLES.map((art) => ({
     url: `${baseUrl}/centro-de-conocimiento/${art.category.slug}/${art.slug}`,
     lastModified: new Date(art.dateModified),
@@ -66,5 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.88,
   }));
 
-  return [...staticRoutes, ...knowledgeNodesRoutes, ...kcCategoryRoutes, ...kcArticleRoutes];
+  // Premium Juridical Resources
+  const resourceRoutes: MetadataRoute.Sitemap = PREMIUM_RESOURCES.map((res) => ({
+    url: `${baseUrl}/recursos/${res.slug}`,
+    lastModified: new Date(res.dateModified),
+    changeFrequency: 'weekly',
+    priority: 0.87,
+  }));
+
+  return [...staticRoutes, ...knowledgeNodesRoutes, ...kcCategoryRoutes, ...kcArticleRoutes, ...resourceRoutes];
 }
