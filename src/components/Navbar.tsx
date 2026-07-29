@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useState } from 'react';
 import { Phone, Calendar, Menu, X, Shield, MapPin } from 'lucide-react';
 import { FIRM_INFO } from '@/lib/data';
@@ -49,7 +51,8 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         <nav className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-[#333333]">
           <a href="#servicios" className="hover:text-[#0B2818] transition-colors">Servicios</a>
           <a href="#estrategia" className="hover:text-[#0B2818] transition-colors">Nuestra Estrategia</a>
-          <a href="#director" className="hover:text-[#0B2818] transition-colors">Dr. Alexander Solano</a>
+          <Link href="/dr-alexander-solano" className="hover:text-[#0B2818] transition-colors">Dr. Alexander Solano</Link>
+          <Link href="/centro-de-conocimiento" className="hover:text-[#0B2818] transition-colors">Conocimiento</Link>
           <a href="#directorio" className="hover:text-[#0B2818] transition-colors">Directorio Popayán</a>
           <a href="#faq" className="hover:text-[#0B2818] transition-colors">Preguntas</a>
         </nav>
