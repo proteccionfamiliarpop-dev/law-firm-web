@@ -325,6 +325,52 @@ export const KNOWLEDGE_NODES: KnowledgeNode[] = [
       }
     ],
     relatedNodeIds: ['area-divorcio-notarial', 'ciudad-popayan']
+  },
+  {
+    id: 'concepto-patria-potestad',
+    cluster: 'conceptos',
+    slug: 'patria-potestad-definicion-y-suspension',
+    title: 'Patria Potestad en Colombia: Derechos y Causales de Suspensión',
+    subtitle: 'Marco normativo sobre la representación legal y custodia de los hijos menores',
+    metaTitle: 'Patria Potestad en Colombia | Definición y Suspensión',
+    metaDescription: 'Análisis legal sobre la patria potestad en Colombia. Diferencias con la custodia, privación y suspensión según el Código Civil.',
+    keywords: ['Patria potestad Colombia', 'Privación patria potestad', 'Custodia vs patria potestad'],
+    summary: 'La patria potestad es el conjunto de derechos y deberes que la ley reconoce a los padres sobre los hijos no emancipados.',
+    legalBasis: ['Código Civil Colombiano (Art. 288)', 'Código de la Infancia y la Adolescencia (Ley 1098 de 2006)'],
+    schemaType: 'DefinedTerm',
+    author: 'Dr. Alexander Solano',
+    datePublished: '2026-02-15',
+    dateModified: '2026-07-29',
+    sections: [
+      {
+        heading: 'Diferencia entre Custodia y Patria Potestad',
+        body: 'La custodia refiere al cuidado personal y convivencia diaria; la patria potestad es la representación legal y administración de bienes del menor.'
+      }
+    ],
+    relatedNodeIds: ['area-divorcio-notarial', 'guia-divorcio-notarial']
+  },
+  {
+    id: 'juris-sentencia-c-577-11',
+    cluster: 'jurisprudencia',
+    slug: 'sentencia-c-577-11-corte-constitucional-familia',
+    title: 'Sentencia C-577 de 2011: Protección Constitucional de las Tipologías Familiares',
+    subtitle: 'Doctrina de la Corte Constitucional sobre el concepto pluralista de familia',
+    metaTitle: 'Sentencia C-577/11 Corte Constitucional | Análisis de Familia',
+    metaDescription: 'Estudio de la Sentencia C-577 de 2011 de la Corte Constitucional de Colombia sobre la protección de familias diversas.',
+    keywords: ['Sentencia C 577 de 2011', 'Jurisprudencia corte constitucional familia'],
+    summary: 'Sentencia hito que reconoció la diversidad familiar como bien protegido constitucionalmente.',
+    legalBasis: ['Corte Constitucional de Colombia - Sentencia C-577/11'],
+    schemaType: 'Legislation',
+    author: 'Dr. Alexander Solano',
+    datePublished: '2026-03-05',
+    dateModified: '2026-07-29',
+    sections: [
+      {
+        heading: 'Ratio Decidendi',
+        body: 'El mandato del artículo 42 de la Constitución ampara todas las formas de familia constituidas por vínculos naturales o jurídicos.'
+      }
+    ],
+    relatedNodeIds: ['concepto-sociedad-conyugal', 'area-divorcio-notarial']
   }
 ];
 
