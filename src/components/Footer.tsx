@@ -1,4 +1,4 @@
-import { Shield, Phone, Mail, MapPin, Calendar, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { FIRM_INFO } from '@/lib/data';
 

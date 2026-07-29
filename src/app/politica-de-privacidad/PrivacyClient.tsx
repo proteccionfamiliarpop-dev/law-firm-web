@@ -49,7 +49,7 @@ export default function PrivacyClient() {
           <section className="space-y-3">
             <h2 className="text-lg font-serif font-bold text-[#1A1A1A]">2. Marco Legal Aplicable</h2>
             <p>
-              La presente política se rige por la Constitución Política de Colombia (Artículo 15), la <strong>Ley Estatutaria 1581 de 2012</strong> ("Por la cual se dictan disposiciones generales para la protección de datos personales"), el Decreto Reglamentario 1377 de 2013 y demás normas que las modifiquen o adicionen.
+              La presente política se rige por la Constitución Política de Colombia (Artículo 15), la <strong>Ley Estatutaria 1581 de 2012</strong> (&quot;Por la cual se dictan disposiciones generales para la protección de datos personales&quot;), el Decreto Reglamentario 1377 de 2013 y demás normas que las modifiquen o adicionen.
             </p>
           </section>
 

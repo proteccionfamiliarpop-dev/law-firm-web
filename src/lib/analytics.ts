@@ -1,14 +1,14 @@
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    dataLayer?: Record<string, any>[];
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
 
 // Generic Event Sender
-export const trackEvent = (eventName: string, params: Record<string, any> = {}) => {
+export const trackEvent = (eventName: string, params: Record<string, unknown> = {}) => {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', eventName, params);
   }

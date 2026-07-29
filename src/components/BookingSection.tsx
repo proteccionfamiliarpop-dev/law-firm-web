@@ -1,25 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, 
   Calendar, 
-  Clock, 
-  User, 
-  Mail, 
-  Phone, 
-  FileText, 
   CheckCircle2, 
   ArrowRight, 
   ArrowLeft,
   Lock,
-  HeartHandshake,
   Building2,
   Video,
   Sparkles,
-  ShieldAlert,
   Scale,
   MessageSquare,
   Loader2
@@ -39,25 +32,20 @@ export default function BookingSection() {
     phone: '',
     notes: ''
   });
-  const [utmParams, setUtmParams] = useState({
-    utmSource: '',
-    utmMedium: '',
-    utmCampaign: ''
+  const [utmParams] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        utmSource: params.get('utm_source') || 'direct',
+        utmMedium: params.get('utm_medium') || 'web',
+        utmCampaign: params.get('utm_campaign') || 'organico'
+      };
+    }
+    return { utmSource: 'direct', utmMedium: 'web', utmCampaign: 'organico' };
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      setUtmParams({
-        utmSource: params.get('utm_source') || 'direct',
-        utmMedium: params.get('utm_medium') || 'web',
-        utmCampaign: params.get('utm_campaign') || 'organico'
-      });
-    }
-  }, []);
 
   const availableTimes = [
     '08:00 AM', '09:30 AM', '11:00 AM', 
@@ -115,7 +103,7 @@ export default function BookingSection() {
 
       trackFormSubmission({ service: selectedService, modality: selectedModality, utmSource: utmParams.utmSource });
       setIsSubmitted(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error enviando lead a la API:', err);
       // Graceful error recovery: still proceed to confirmation screen so user experience is never blocked
       if (typeof window !== 'undefined') {

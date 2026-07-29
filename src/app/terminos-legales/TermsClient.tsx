@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Scale, Lock, ChevronRight, ArrowLeft } from 'lucide-react';
+import { Scale, ChevronRight, ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 

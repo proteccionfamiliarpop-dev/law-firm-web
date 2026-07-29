@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+
+
 import { 
   ShieldCheck, 
   Users, 
@@ -33,8 +35,8 @@ import Footer from '@/components/Footer';
 import BookingSection from '@/components/BookingSection';
 import LegalCalculator from '@/components/LegalCalculator';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
-import PracticeAreaModal from '@/components/PracticeAreaModal';
+
+
 import AttorneyModal from '@/components/AttorneyModal';
 import { 
   FIRM_INFO, 
@@ -50,7 +52,7 @@ import {
 } from '@/lib/data';
 
 export default function Home() {
-  const [activePracticeModalArea, setActivePracticeModalArea] = useState<PracticeArea | null>(null);
+  // Modal active practice area removed
   const [activeAttorneyModal, setActiveAttorneyModal] = useState<Attorney | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
@@ -375,6 +377,8 @@ export default function Home() {
         </section>
 
         {/* EMBEDDED DEDICATED BOOKING FUNNEL SECTION (REPLACING MODAL POPUP AS REQUESTED) */}
+        <LegalCalculator />
+
         <BookingSection />
 
         {/* DIRECTORIO DE POPAYÁN CARDS */}

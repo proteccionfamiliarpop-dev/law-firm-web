@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in API /api/leads:', error);
     return NextResponse.json(
       { success: false, error: 'Error interno del servidor al procesar la solicitud' },

@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Scale, Building2, CheckCircle2, ArrowRight, RefreshCw, HelpCircle, Lock, MessageSquare, Calendar } from 'lucide-react';
+import { Scale, Building2, RefreshCw, MessageSquare, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { trackCalculatorUse, trackWhatsAppClick } from '@/lib/analytics';
+import { trackCalculatorUse } from '@/lib/analytics';
 
 export default function LegalCalculator() {
   const [hasAgreement, setHasAgreement] = useState<boolean | null>(null);

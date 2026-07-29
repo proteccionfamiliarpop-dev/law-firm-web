@@ -61,7 +61,7 @@ export default function GoogleCalendarWidget({ selectedAreaTitle, onSuccess }: G
     // Calculate dates
     const [startTimeStr] = selectedSlot.split(' - ');
     const isPm = startTimeStr.includes('PM');
-    let [hoursStr, minutesStr] = startTimeStr.replace(' AM', '').replace(' PM', '').split(':');
+    const [hoursStr, minutesStr] = startTimeStr.replace(' AM', '').replace(' PM', '').split(':');
     let hours = parseInt(hoursStr, 10);
     if (isPm && hours !== 12) hours += 12;
     if (!isPm && hours === 12) hours = 0;

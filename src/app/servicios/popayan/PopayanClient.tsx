@@ -15,8 +15,8 @@ import Footer from '@/components/Footer';
 import BookingSection from '@/components/BookingSection';
 import LegalCalculator from '@/components/LegalCalculator';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
-import { FIRM_INFO, ATTORNEYS } from '@/lib/data';
+import { StaggerContainer } from '@/components/MotionWrapper';
+import { FIRM_INFO } from '@/lib/data';
 
 interface PopayanFaq {
   q: string;
