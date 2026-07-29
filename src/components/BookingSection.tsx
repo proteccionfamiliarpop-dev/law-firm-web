@@ -24,6 +24,7 @@ import {
   Loader2
 } from 'lucide-react';
 import { FIRM_INFO, PRACTICE_AREAS } from '@/lib/data';
+import { trackFormSubmission, trackBookingStep } from '@/lib/analytics';
 
 export default function BookingSection() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -63,7 +64,10 @@ export default function BookingSection() {
   ];
 
   const handleNextStep = () => {
-    if (currentStep < 4) setCurrentStep(currentStep + 1);
+    if (currentStep < 4) {
+      setCurrentStep(currentStep + 1);
+      trackBookingStep(currentStep + 1, `Paso ${currentStep + 1}`);
+    }
   };
 
   const handlePrevStep = () => {
@@ -108,6 +112,7 @@ export default function BookingSection() {
         localStorage.setItem('pf_offline_leads', JSON.stringify(storedLeads));
       }
 
+      trackFormSubmission({ service: selectedService, modality: selectedModality, utmSource: utmParams.utmSource });
       setIsSubmitted(true);
     } catch (err: any) {
       console.error('Error enviando lead a la API:', err);
@@ -117,6 +122,7 @@ export default function BookingSection() {
         storedLeads.push({ ...payload, timestamp: new Date().toISOString(), offline: true });
         localStorage.setItem('pf_offline_leads', JSON.stringify(storedLeads));
       }
+      trackFormSubmission({ service: selectedService, modality: selectedModality, utmSource: utmParams.utmSource });
       setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);

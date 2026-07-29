@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Scale, Building2, CheckCircle2, ArrowRight, RefreshCw, HelpCircle, Lock, MessageSquare, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { trackCalculatorUse, trackWhatsAppClick } from '@/lib/analytics';
 
 export default function LegalCalculator() {
   const [hasAgreement, setHasAgreement] = useState<boolean | null>(null);
@@ -17,6 +18,9 @@ export default function LegalCalculator() {
 
   const isComplete = hasAgreement !== null && hasMinorChildren !== null && hasAssets !== null;
   const isNotarial = hasAgreement === true;
+  if (isComplete) {
+    trackCalculatorUse(isNotarial ? 'notarial' : 'judicial');
+  }
 
   const scrollToBooking = () => {
     const el = document.getElementById('agendar');

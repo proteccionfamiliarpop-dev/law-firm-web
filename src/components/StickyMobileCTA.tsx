@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Calendar, MessageSquare, ArrowRight } from 'lucide-react';
+import { trackWhatsAppClick } from '@/lib/analytics';
 
 interface StickyMobileCTAProps {
   onScrollToBooking: () => void;
@@ -38,6 +39,7 @@ export default function StickyMobileCTA({ onScrollToBooking }: StickyMobileCTAPr
         </button>
 
         <a
+          onClick={() => trackWhatsAppClick("StickyMobileCTA")}
           href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20solicitar%20asesor%C3%ADa%20legal%20urgente"
           target="_blank"
           rel="noopener noreferrer"

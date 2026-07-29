@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Merriweather } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const inter = Inter({ 
@@ -168,6 +169,26 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
+      
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
+
       </head>
       <body className="bg-[#FAF8F5] text-[#1A1A1A] antialiased selection:bg-[#0B2818] selection:text-white">
         {children}
