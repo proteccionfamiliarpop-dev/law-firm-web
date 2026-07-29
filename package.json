@@ -10,7 +10,8 @@
     "test:gatekeeper": "npx tsx scripts/validateQualityGate.ts",
     "content-os:audit": "npx tsx scripts/runContentOSPipeline.ts",
     "lie:test": "npx tsx tests/lie/lie.test.ts",
-    "lcf:test": "npx tsx tests/lcf/lcf.test.ts"
+    "lcf:test": "npx tsx tests/lcf/lcf.test.ts",
+    "intelligence:test": "npx tsx tests/intelligence/intelligence.test.ts"
   },
   "dependencies": {
     "autoprefixer": "^10.5.4",
