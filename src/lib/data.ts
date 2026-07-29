@@ -8,6 +8,12 @@ export interface PracticeArea {
   casesHandled: number;
 }
 
+export interface Publication {
+  title: string;
+  type: string;
+  url?: string;
+}
+
 export interface Attorney {
   id: string;
   name: string;
@@ -19,6 +25,7 @@ export interface Attorney {
   bio: string;
   email: string;
   phone: string;
+  publications?: Publication[];
 }
 
 export interface Testimonial {
@@ -39,102 +46,102 @@ export interface FAQItem {
 export const FIRM_INFO = {
   name: 'Protección Familiar & Asociados',
   tagline: 'Defensa Legal Exclusiva y Protección Integral para Tu Familia y Patrimonio',
-  description: 'Más de 18 años brindando asesoría jurídica estratégica, representación de alto nivel y soluciones definitivas en derecho familiar, civil, penal y corporativo.',
+  description: 'Comprometidos con la excelencia e integralidad en servicios jurídicos especializados, asistencia y representación de alto nivel ante la jurisdicción civil y de familia en Colombia.',
   phone: '+57 315 354 0285',
   emergencyPhone: '+57 315 354 0285',
   email: 'contacto@proteccionfamiliar.law',
-  address: 'Av. Paseo de la Reforma 483, Piso 24, Juárez, Ciudad de México',
-  workingHours: 'Lunes a Viernes: 8:00 AM - 7:00 PM | Emergencias 24/7',
+  address: 'Suroccidente Colombiano | Cobertura en Popayán, Cali y Nivel Nacional',
+  workingHours: 'Lunes a Viernes: 8:00 AM - 7:00 PM | Atención y WhatsApp 24/7',
   stats: [
     { label: 'Casos Resueltos', value: '2,500+' },
     { label: 'Tasa de Éxito', value: '98.4%' },
     { label: 'Años de Trayectoria', value: '18+' },
-    { label: 'Atención de Emergencia', value: '24/7' }
+    { label: 'Atención WhatsApp', value: '24/7' }
   ]
 };
 
 export const PRACTICE_AREAS: PracticeArea[] = [
   {
     id: 'derecho-familiar',
-    title: 'Derecho de Familia & Custodia',
+    title: 'Derecho de Familia & Sucesiones',
     iconName: 'Users',
-    shortDesc: 'Protección de los derechos de tus hijos, pensiones alimenticias, divorcios y guardia y custodia.',
-    fullDesc: 'Manejamos los procesos de familia con absoluta sensibilidad, firmeza y respaldo legal. Priorizamos el bienestar de los menores y la preservación de los acuerdos familiares pacíficos.',
+    shortDesc: 'Sucesiones, testamentos, divorcios, uniones maritales, alimentos, patria potestad y filiación.',
+    fullDesc: 'Asistencia y representación en disputas y acuerdos familiares: Sucesiones, Testamentos, Donaciones, Derecho de Alimentos, Investigación o Impugnación de Paternidad/Maternidad, Capitulaciones, Nupcias, Divorcios, Uniones Maritales de Hecho, Liquidaciones de Sociedad Conyugal y Patrimonial, y Adopción de menores o mayores de edad.',
     benefits: [
-      'Juicios de Guardia y Custodia prioritarios',
-      'Cálculo y reclamo de Pensiones Alimenticias',
-      'Divorcio Incausado y de Mutuo Acuerdo acelerado',
-      'Patria Potestad y Régimen de Visitas'
+      'Juicios Sucesorios e Impugnación de Testamentos',
+      'Divorcio y Liquidación de Sociedad Conyugal / Patrimonial',
+      'Investigación e Impugnación de Paternidad o Maternidad',
+      'Fijación, Cuota y Reclamo de Alimentos, Adopciones'
     ],
-    casesHandled: 940
+    casesHandled: 980
   },
   {
-    id: 'proteccion-patrimonial',
-    title: 'Protección Patrimonial & Testamentos',
+    id: 'proteccion-patrimonial-contratos',
+    title: 'Contratos Civiles & Asuntos Inmobiliarios',
     iconName: 'ShieldCheck',
-    shortDesc: 'Blindaje de bienes familiares, sucesiones intestadas, testamentos y fideicomisos.',
-    fullDesc: 'Aseguramos que los bienes que has construido durante toda tu vida queden protegidos contra contingencias y se transmitan ordenadamente a las futuras generaciones.',
+    shortDesc: 'Protección y negociación en contratos de compraventa, arrendamiento, hipotecas y derechos inmobiliarios.',
+    fullDesc: 'Consultoría e intervención jurídica en protección, elaboración, negociación y defensa de contratos civiles: Compraventa, permuta, arrendamiento, mutuo, depósito, mandato, hipoteca, anticresis, prenda y transacción. Consultoría Inmobiliaria: Derechos de uso y habitación, servidumbres, acciones reivindicatorias y de simulación.',
     benefits: [
-      'Estructuración de Fideicomisos Familiares',
-      'Juicios Sucesorios Testamentarios e Intestamentarios',
-      'Blindaje contra embargos y controversias patrimoniales',
-      'Donaciones y adjudicación de inmuebles'
+      'Auditoría y Blindaje de Contratos Civiles',
+      'Derechos de uso, habitación y servidumbres',
+      'Acciones Reivindicatorias y de Simulación Inmobiliaria',
+      'Protección contra riesgos patrimoniales'
     ],
-    casesHandled: 680
+    casesHandled: 720
   },
   {
-    id: 'derecho-civil',
-    title: 'Derecho Civil & Contratos',
+    id: 'litigio-civil',
+    title: 'Litigio Civil & Representación Jurisdiccional',
     iconName: 'FileText',
-    shortDesc: 'Representación en litigios civiles, incumplimiento de contratos y reclamos por responsabilidad.',
-    fullDesc: 'Defendemos tus intereses comerciales y personales ante cualquier incumplimiento de contrato, prescripciones de propiedad e indemnizaciones por daños y perjuicios.',
+    shortDesc: 'Representación técnica en procesos civiles y de responsabilidad patrimonial ante tribunales.',
+    fullDesc: 'Defensa estratégica ante la jurisdicción civil y de familia con el objetivo firme de garantizar resultados favorables según las necesidades concretas del cliente.',
     benefits: [
-      'Litigio Civil y Mercantil especializado',
-      'Redacción y auditoría de Contratos de Alto Valor',
-      'Recuperación de Cartera y Bienes Inmuebles',
-      'Reclamación de Daño Moral y Material'
+      'Litigio ante Juzgados Civiles y de Familia',
+      'Acciones de Simulación y Nulidad de Contratos',
+      'Resolución de Conflictos Patrimoniales',
+      'Representación integral en procesos judiciales'
     ],
-    casesHandled: 520
+    casesHandled: 540
   },
   {
     id: 'defensa-penal',
     title: 'Defensa Penal 24/7 & Amparos',
     iconName: 'Gavel',
-    shortDesc: 'Atención penal inmediata ante Ministerios Públicos, juicio oral penal y amparos urgentes.',
+    shortDesc: 'Atención penal inmediata ante fiscalías, audiencias de control de garantías y tutelas.',
     fullDesc: 'Brindamos una defensa técnica rigurosa e inmediata. Nuestros abogados penalistas acuden al instante para garantizar el debido proceso y la libertad de nuestros representados.',
     benefits: [
-      'Asistencia técnica inmediata ante fiscalías 24 horas',
-      'Tramitación de Juicios de Amparo de emergencia',
-      'Defensa en Sistema Penal Acusatorio y Oral',
-      'Representación a víctimas y querellantes'
+      'Asistencia técnica inmediata 24 horas',
+      'Audiencias de Control de Garantías y Juicio',
+      'Tramitación de Acciones de Tutela y Amparos',
+      'Representación a víctimas'
     ],
     casesHandled: 310
   },
   {
     id: 'derecho-corporativo',
-    title: 'Corporativo & Negocios Familiares',
+    title: 'Corporativo & Empresa Familiar',
     iconName: 'Briefcase',
-    shortDesc: 'Constitución de empresas, gobierno corporativo para negocios familiares y propiedad intelectual.',
+    shortDesc: 'Estructuración jurídica de empresas familiares, gobierno corporativo y acuerdos entre socios.',
     fullDesc: 'Asesoramos a emprendedores y empresas familiares en su crecimiento, garantizando el cumplimiento normativo, la protección de marcas y la resolución de disputas entre socios.',
     benefits: [
-      'Constitución de Sociedades (S.A. de C.V., S.A.S., S.C.)',
+      'Constitución de Sociedades',
       'Protocolos de Familia y Gobierno Corporativo',
-      'Registro de Marcas ante el IMPI y Patentes',
-      'Contratación y Cumplimiento Regulatorio'
+      'Registro de Marcas y Propiedad Intelectual',
+      'Contratación Civil y Comercial'
     ],
     casesHandled: 410
   },
   {
-    id: 'derecho-laboral',
-    title: 'Derecho Laboral & Seguridad Social',
+    id: 'conciliacion-mediacion',
+    title: 'Conciliación & Resolución de Conflictos',
     iconName: 'Award',
-    shortDesc: 'Asesoría en indemnizaciones por despido, negociaciones laborales y pensiones.',
-    fullDesc: 'Protegemos tus derechos laborales con negociaciones objetivas o litigios ante Tribunales Laborales, logrando liquidaciones justas y el otorgamiento correcto de pensiones.',
+    shortDesc: 'Mecanismos alternativos de solución de conflictos dirigidos por conciliadores certificados.',
+    fullDesc: 'Resolución pacífica y vinculante de controversias familiares y civiles a través de procesos de conciliación en derecho con plena validez legal.',
     benefits: [
-      'Defensa por Despido Injustificado',
-      'Cálculo y reclamo de Liquidaciones y Finiquitos',
-      'Negociación de convenios laborales',
-      'Trámite de Pensiones por Invalidez o Retiro'
+      'Actas de Conciliación con fuerza de Cosa Juzgada',
+      'Acuerdos compositivos de liquidación y alimentos',
+      'Solución ágil y económica de disputas',
+      'Asesoría técnica previa a la audiencia'
     ],
     casesHandled: 470
   }
@@ -142,50 +149,72 @@ export const PRACTICE_AREAS: PracticeArea[] = [
 
 export const ATTORNEYS: Attorney[] = [
   {
+    id: 'abogado-principal',
+    name: 'Socio Director & Fundador',
+    role: 'Socio Fundador & Director Jurídico',
+    specialty: 'Derecho de Familia, Conciliador & Litigante Civil',
+    experience: 'Magíster & Cand. Doctor en Derecho',
+    education: 'Abogado, Conciliador | Especialista en Derecho de Familia | Magíster en Derecho | Candidato a Doctor en Derecho',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600',
+    bio: 'Abogado, Conciliador, Especialista en Derecho de Familia, Magíster en Derecho y Candidato a Doctor en Derecho. Litigante, docente e investigador de instituciones de educación superior del Suroccidente colombiano. Autor y jurista de reconocidos libros académicos y artículos de investigación en derecho familiar e identidad sociojurídica.',
+    email: 'director@proteccionfamiliar.law',
+    phone: '+57 315 354 0285',
+    publications: [
+      {
+        title: 'Libro: La construcción de la identidad al interior de la familia asistida: pugnas históricas, sociales y jurídicas colombianas (2da Edición)',
+        type: 'Libro de Investigación',
+        url: 'https://repositorio.uniautonoma.edu.co/handle/123456789/744'
+      },
+      {
+        title: 'Libro: La investigación jurídica en perspectiva multidisciplinar: aportes para la comprensión de realidades sociales, políticas y jurídicas',
+        type: 'Libro Académico',
+        url: 'https://repositorio.uniautonoma.edu.co/xmlui/handle/123456789/664'
+      },
+      {
+        title: 'Artículo: Resiliencia como respuesta a la ausencia del estado: la influencia del conflicto armado colombiano en las familias diversas desde una mirada sociojurídica',
+        type: 'Artículo de Investigación',
+        url: 'https://www.researchgate.net/publication/401072716_Resiliencia_como_respuesta_a_la_ausencia_del_estado_la_influencia_del_conflicto_armado_colombiano_en_las_familias_diversas_desde_una_mirada_sociojuridica'
+      },
+      {
+        title: 'Artículo: Conceptual Reconfiguration of the Family in Postmodern Law: A Look at the Colombian Case',
+        type: 'Artículo Internacional',
+        url: 'https://sci-cult.net/index.php/cult/article/view/3761/2229'
+      }
+    ]
+  },
+  {
     id: 'sofia-valenzuela',
     name: 'Lic. Sofía Valenzuela R.',
     role: 'Socia Directora - Área Familiar',
     specialty: 'Derecho de Familia, Custodia y Mediación',
     experience: '16 años de experiencia',
-    education: 'Licenciatura en Derecho (UNAM) | Maestría en Derecho Familiar (Universidad de Barcelona)',
+    education: 'Licenciatura en Derecho | Maestría en Derecho Familiar',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600',
-    bio: 'Especialista reconocida a nivel nacional en solución de controversias familiares complejas y mediación de custodia infantil con enfoque en el interés superior de la infancia.',
+    bio: 'Especialista en solución de controversias familiares complejas, adopciones y mediación de custodia infantil con enfoque en el interés superior de la infancia.',
     email: 'svalenzuela@proteccionfamiliar.law',
-    phone: '+57 315 354 0285'
-  },
-  {
-    id: 'alejandro-mendoza',
-    name: 'Dr. Alejandro Mendoza T.',
-    role: 'Socio Principal - Litigio & Patrimonial',
-    specialty: 'Protección Patrimonial y Derecho Civil',
-    experience: '20 años de experiencia',
-    education: 'Doctorado en Derecho Civil (Escuela Libre de Derecho) | Postgrado en Fideicomisos (ITAM)',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600',
-    bio: 'Experto en estructuración de patrimonios familiares, fideicomisos y controversias sucesorias de alto impacto económico para grupos familiares e inversionistas.',
-    email: 'amendoza@proteccionfamiliar.law',
     phone: '+57 315 354 0285'
   },
   {
     id: 'carlos-morales',
     name: 'Lic. Carlos Morales O.',
     role: 'Director de Defensa Penal',
-    specialty: 'Sistema Penal Acusatorio y Juicio de Amparo',
+    specialty: 'Sistema Penal Acusatorio & Tutelas',
     experience: '14 años de experiencia',
-    education: 'Licenciatura en Derecho (Iberoamericana) | Certificado en Litigación Oral (California Western School of Law)',
+    education: 'Licenciatura en Derecho | Certificado en Litigación Oral',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600',
-    bio: 'Líder del equipo de respuesta inmediata 24/7. Ha litigado con éxito en más de 300 audiencias penales complejas y obtenido amparos definitivos estratégicos.',
+    bio: 'Líder del equipo de respuesta inmediata 24/7. Ha litigado con éxito en audiencias penales complejas y tramitación de acciones de tutela.',
     email: 'cmorales@proteccionfamiliar.law',
     phone: '+57 315 354 0285'
   },
   {
     id: 'elena-ramirez',
     name: 'Dra. Elena Ramírez S.',
-    role: 'Socia Corporativa & Laboral',
-    specialty: 'Derecho Corporativo y Empresas Familiares',
+    role: 'Socia Corporativa & Inmobiliaria',
+    specialty: 'Derecho Civil, Inmobiliario y Contratos',
     experience: '11 años de experiencia',
-    education: 'Licenciatura y Maestría en Derecho Mercantil (Tec de Monterrey)',
+    education: 'Licenciatura y Maestría en Derecho Civil y Mercantil',
     image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=600',
-    bio: 'Asesora legal para la transición generacional de empresas familiares, fusiones corporativas y cumplimiento de normativas de trabajo y privacidad de datos.',
+    bio: 'Asesora en estructuración de contratos de arrendamiento, compraventas, hipotecas y acciones reivindicatorias de propiedad.',
     email: 'eramirez@proteccionfamiliar.law',
     phone: '+57 315 354 0285'
   }
@@ -195,24 +224,24 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
     clientName: 'Roberto G. - Empresario',
-    caseType: 'Protección Patrimonial y Fideicomiso',
-    comment: 'La intervención del Dr. Mendoza salvó el patrimonio familiar de un litigio indebido. La atención fue impecable, clara y altamente profesional desde la primera hora.',
+    caseType: 'Sucesión Completa y Contratos Civiles',
+    comment: 'El acompañamiento académico y riguroso del Doctor y su equipo garantizó una sucesión justa y la protección total de nuestros inmuebles familiares en el Suroccidente colombiano.',
     rating: 5,
     date: 'Hace 2 meses'
   },
   {
     id: '2',
     clientName: 'Mariana H.',
-    caseType: 'Custodia y Pensión Alimenticia',
-    comment: 'La Dra. Sofía Valenzuela llevó mi caso de custodia con un grado de empatía y firmeza legal que me dio tranquilidad absoluta. Logramos el mejor acuerdo para mis hijos.',
+    caseType: 'Filiación y Cuota Alimenticia',
+    comment: 'Llevaron mi caso de filiación y alimentos con un nivel de empatía, investigación académica y firmeza legal que me dio absoluta tranquilidad. Excelente representación.',
     rating: 5,
     date: 'Hace 1 mes'
   },
   {
     id: '3',
     clientName: 'Grupo Comercial Valdés',
-    caseType: 'Estructuración Corporativa y Marcas',
-    comment: 'Protección Familiar formalizó nuestra empresa familiar y protegió nuestros activos intangibles. Su visión preventiva nos ha ahorrado problemas legales enormes.',
+    caseType: 'Contratos Civiles y Asuntos Inmobiliarios',
+    comment: 'Protección Familiar estructuró nuestros contratos de compraventa y servidumbres inmobiliarias con un blindaje preventivo impecable.',
     rating: 5,
     date: 'Hace 3 semanas'
   }
@@ -222,21 +251,21 @@ export const FAQS: FAQItem[] = [
   {
     category: 'General',
     question: '¿Cómo es el proceso de la primera consulta legal?',
-    answer: 'En tu primera consulta de 45 minutos (presencial o por videoconferencia), un abogado especialista evaluará los hechos de tu caso, revisará la documentación disponible y te presentará una hoja de ruta estratégica clara con los costos previstos.'
+    answer: 'En tu primera consulta (presencial o por videoconferencia), un abogado especialista o nuestro director evaluará los hechos de tu caso, revisará los contratos o documentos de familia y te presentará una hoja de ruta estratégica clara.'
   },
   {
-    category: 'Costos',
-    question: '¿Cuáles son las modalidades de cobro y honorarios?',
-    answer: 'Manejamos esquemas transparentes de honorarios fijos por etapa procesal, igualas mensuales para empresas o esquemas a resultado (cuota litis) según el tipo de asunto jurídico.'
+    category: 'Especialidad',
+    question: '¿En qué áreas geográficas prestan sus servicios jurídicos?',
+    answer: 'Nuestra firma brinda atención directa en Popayán, Cali, el Suroccidente colombiano y representación en procesos judiciales de familia y civiles a nivel nacional en Colombia.'
   },
   {
     category: 'Urgencias',
-    question: '¿Qué debo hacer en caso de una detención o emergencia penal inmediata?',
-    answer: 'Puedes marcar a nuestra línea directiva de emergencias 24/7 (+57 315 354 0285). Uno de nuestros abogados penalistas de guardia se constituirá al instante en la fiscalía correspondiente.'
+    question: '¿Cómo puedo comunicarme inmediatamente por WhatsApp o llamadas?',
+    answer: 'Puedes contactarnos las 24 horas del día al teléfono y WhatsApp +57 315 354 0285. Nuestro equipo te dará respuesta prioritaria.'
   },
   {
     category: 'Confidencialidad',
     question: '¿Mis datos e información compartida son confidenciales?',
-    answer: 'Absolutamente. Toda comunicación está blindada bajo el Secreto Profesional Abogado-Cliente y protegida por nuestro estricto Aviso de Privacidad en conformidad con las leyes vigentes.'
+    answer: 'Absolutamente. Toda comunicación está blindada bajo el Secreto Profesional Abogado-Cliente y protegida por nuestro estricto Aviso de Privacidad en conformidad con las leyes colombianas.'
   }
 ];
