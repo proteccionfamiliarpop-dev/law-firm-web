@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, 
@@ -412,7 +413,20 @@ export default function BookingSection() {
 
                   <div className="p-4 rounded-xl bg-[#0B2818]/10 border border-[#0B2818]/20 flex items-center gap-3 text-xs text-[#0B2818]">
                     <Lock className="w-5 h-5 shrink-0" />
-                    <span>Protegido bajo Secreto Profesional Abogado-Cliente según las normativas éticas del ejercicio de la abogacía en Colombia.</span>
+                    <span>Protegido bajo Secreto Profesional Abogado-Cliente (Ley 1123 de 2007 & Art. 74 C.P.).</span>
+                  </div>
+
+                  <div className="flex items-start gap-2 pt-1 text-xs text-[#555555]">
+                    <input
+                      type="checkbox"
+                      id="habeasDataConsent"
+                      required
+                      defaultChecked
+                      className="mt-0.5 rounded border-[#E5DFD5] text-[#0B2818] focus:ring-[#0B2818]"
+                    />
+                    <label htmlFor="habeasDataConsent" className="leading-tight">
+                      Autorizo el tratamiento de mis datos personales para la gestión de mi consulta jurídica según la <Link href="/politica-de-privacidad" className="underline font-bold text-[#0B2818]" target="_blank" rel="noopener noreferrer">Política de Privacidad (Ley 1581 de 2012)</Link>.
+                    </label>
                   </div>
 
                   {submitError && (

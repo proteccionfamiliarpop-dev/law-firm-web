@@ -1,4 +1,5 @@
 import { Shield, Phone, Mail, MapPin, Calendar, ExternalLink, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 import { FIRM_INFO } from '@/lib/data';
 
 export default function Footer() {
@@ -109,10 +110,11 @@ export default function Footer() {
         {/* Bottom Rights Bar */}
         <div className="mt-12 pt-8 border-t border-[#E5DFD5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#666666]">
           <p>© 2026 Protección Familiar. Todos los derechos reservados. Abogados de Familia en Popayán y Cali, Colombia.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-[#0B2818]">Aviso Legal</a>
-            <a href="#" className="hover:text-[#0B2818]">Política de Privacidad</a>
-            <a href="#" className="hover:text-[#0B2818]">Sucursal Cali</a>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link href="/terminos-legales" className="hover:text-[#0B2818] font-medium">Términos Legales & Ética</Link>
+            <Link href="/politica-de-privacidad" className="hover:text-[#0B2818] font-medium">Política de Privacidad (Ley 1581)</Link>
+            <Link href="/servicios/popayan" className="hover:text-[#0B2818] font-medium">Sede Popayán</Link>
+            <Link href="/servicios/cali" className="hover:text-[#0B2818] font-medium">Cobertura Cali</Link>
           </div>
         </div>
       </div>
