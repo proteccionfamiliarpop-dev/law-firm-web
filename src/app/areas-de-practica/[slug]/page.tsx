@@ -132,7 +132,7 @@ export default function KnowledgeNodePage({ params }: PageProps) {
         />
       )}
 
-      <Navbar onOpenConsultation={() => {}} />
+      <Navbar />
 
       <main className="flex-1">
         <KnowledgeBreadcrumbs currentNode={node} />
@@ -200,7 +200,7 @@ export default function KnowledgeNodePage({ params }: PageProps) {
       </main>
 
       <Footer />
-      <StickyMobileCTA onScrollToBooking={() => {}} />
+      <StickyMobileCTA />
     </div>
   );
 }

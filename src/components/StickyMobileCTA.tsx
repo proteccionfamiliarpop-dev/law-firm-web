@@ -5,7 +5,7 @@ import { Calendar, MessageSquare, ArrowRight } from 'lucide-react';
 import { trackWhatsAppClick } from '@/lib/analytics';
 
 interface StickyMobileCTAProps {
-  onScrollToBooking: () => void;
+  onScrollToBooking?: () => void;
 }
 
 export default function StickyMobileCTA({ onScrollToBooking }: StickyMobileCTAProps) {
@@ -30,7 +30,7 @@ export default function StickyMobileCTA({ onScrollToBooking }: StickyMobileCTAPr
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-[#FAF8F5]/95 backdrop-blur-lg border-t border-[#E5DFD5] shadow-2xl transition-all duration-300 animate-in slide-in-from-bottom-5">
       <div className="flex items-center gap-2">
         <button
-          onClick={onScrollToBooking}
+          onClick={() => onScrollToBooking?.()}
           className="flex-1 py-3 px-4 bg-[#0B2818] active:bg-[#071C11] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg flex items-center justify-center gap-2 transition-transform active:scale-95"
         >
           <Calendar className="w-4 h-4 text-amber-300" />

@@ -5,7 +5,7 @@ import { Phone, Calendar, Menu, X, Shield, MapPin } from 'lucide-react';
 import { FIRM_INFO } from '@/lib/data';
 
 interface NavbarProps {
-  onOpenConsultation: () => void;
+  onOpenConsultation?: () => void;
 }
 
 export default function Navbar({ onOpenConsultation }: NavbarProps) {
@@ -84,7 +84,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           </nav>
           <div className="pt-2 space-y-2">
             <button
-              onClick={() => { setIsMobileMenuOpen(false); onOpenConsultation(); }}
+              onClick={() => { setIsMobileMenuOpen(false); onOpenConsultation?.(); }}
               className="w-full py-3 bg-[#0B2818] text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-md"
             >
               <Calendar className="w-4 h-4 text-amber-300" />
