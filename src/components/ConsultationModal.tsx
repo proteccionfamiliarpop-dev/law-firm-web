@@ -1,7 +1,8 @@
 ﻿'use client';
 import { useState } from 'react';
-import { X, Calendar, CheckCircle2, Send, Lock, MessageSquare, ExternalLink } from 'lucide-react';
+import { X, Calendar, CheckCircle2, Send, Lock, MessageSquare, ExternalLink, Sparkles } from 'lucide-react';
 import { PRACTICE_AREAS } from '@/lib/data';
+import GoogleCalendarWidget from '@/components/GoogleCalendarWidget';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface ConsultationModalProps {
 }
 
 export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: ConsultationModalProps) {
+  const [activeTab, setActiveTab] = useState<'google' | 'form'>('google');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -40,57 +42,20 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
     onClose();
   };
 
-  // Build Google Calendar Event URL
-  const getGoogleCalendarUrl = () => {
-    const title = encodeURIComponent(`Consulta Legal: ${selectedPractice.title} - Protección Familiar`);
-    const details = encodeURIComponent(
-      `Consulta jurídica especializada con Protección Familiar & Asociados.\n` +
-      `Cliente: ${formData.name || 'Cliente'}\n` +
-      `Teléfono/WhatsApp: ${formData.phone || '+57 315 354 0285'}\n` +
-      `Área: ${selectedPractice.title}\n` +
-      `Notas: ${formData.notes || 'Consulta General'}`
-    );
-    const location = encodeURIComponent('Virtual (Google Meet/WhatsApp) o Presencial');
-
-    let startDateStr = '';
-    let endDateStr = '';
-
-    if (formData.date) {
-      const d = new Date(formData.date);
-      d.setHours(10, 0, 0); // Default to 10:00 AM
-      const endD = new Date(d);
-      endD.setHours(11, 0, 0); // 1 hour duration
-
-      const formatIso = (dateObj: Date) => dateObj.toISOString().replace(/-|:|\.\d\d\d/g, '');
-      startDateStr = formatIso(d);
-      endDateStr = formatIso(endD);
-    } else {
-      // Tomorrow 10 AM default
-      const d = new Date();
-      d.setDate(d.getDate() + 1);
-      d.setHours(10, 0, 0);
-      const endD = new Date(d);
-      endD.setHours(11, 0, 0);
-      const formatIso = (dateObj: Date) => dateObj.toISOString().replace(/-|:|\.\d\d\d/g, '');
-      startDateStr = formatIso(d);
-      endDateStr = formatIso(endD);
-    }
-
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${startDateStr}/${endDateStr}`;
-  };
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-xl shadow-2xl overflow-hidden relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden relative max-h-[92vh] flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-6 border-b border-slate-800 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-5 border-b border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-amber-500/20 border border-blue-500/30 flex items-center justify-center text-amber-400">
               <Calendar className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white font-serif">Agendar Consulta Jurídica</h3>
-              <p className="text-xs text-slate-400">Sincronización directa con Google Calendar o WhatsApp</p>
+              <h3 className="text-lg font-bold text-white font-serif flex items-center gap-2">
+                Agendar Consulta Jurídica
+              </h3>
+              <p className="text-xs text-slate-400">Sincronización en tiempo real con Google Calendar y WhatsApp</p>
             </div>
           </div>
           <button onClick={onClose} className="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition-colors">
@@ -98,9 +63,39 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
           </button>
         </div>
 
-        {/* Content */}
-        <div className="p-6">
-          {success ? (
+        {/* Tab Selector */}
+        <div className="px-6 pt-4 shrink-0 bg-slate-950/50 border-b border-slate-800/80">
+          <div className="flex gap-2">
+            <button
+              onClick={() => setActiveTab('google')}
+              className={`py-2.5 px-4 text-xs font-bold rounded-t-xl transition-all border-t border-x flex items-center gap-2 ${
+                activeTab === 'google'
+                  ? 'bg-slate-900 border-slate-800 text-amber-300 shadow-md'
+                  : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+              Sincronización Google Calendar (Tiempo Real)
+            </button>
+            <button
+              onClick={() => setActiveTab('form')}
+              className={`py-2.5 px-4 text-xs font-bold rounded-t-xl transition-all border-t border-x flex items-center gap-2 ${
+                activeTab === 'form'
+                  ? 'bg-slate-900 border-slate-800 text-amber-300 shadow-md'
+                  : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Send className="w-3.5 h-3.5 text-amber-400" />
+              Formulario de Contacto Directo
+            </button>
+          </div>
+        </div>
+
+        {/* Content Area */}
+        <div className="p-6 overflow-y-auto flex-1">
+          {activeTab === 'google' ? (
+            <GoogleCalendarWidget selectedAreaTitle={selectedPractice.title} onSuccess={() => setSuccess(true)} />
+          ) : success ? (
             <div className="py-6 text-center space-y-4">
               <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10" />
@@ -109,23 +104,12 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
               <p className="text-sm text-slate-300 max-w-md mx-auto">
                 Un abogado especialista se comunicará al teléfono <span className="text-amber-400 font-semibold">{formData.phone}</span> para confirmar tu horario.
               </p>
-
-              <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
-                <a
-                  href={getGoogleCalendarUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-lg shadow-md flex items-center justify-center gap-2 transition-colors"
-                >
-                  <Calendar className="w-4 h-4" /> Agregar a mi Google Calendar <ExternalLink className="w-3 h-3" />
-                </a>
-                <button
-                  onClick={handleReset}
-                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs rounded-lg transition-colors"
-                >
-                  Cerrar
-                </button>
-              </div>
+              <button
+                onClick={handleReset}
+                className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs rounded-lg transition-colors"
+              >
+                Cerrar
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -139,7 +123,7 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                   placeholder="Ej. Dr. Carlos Rodríguez"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 outline-none"
                 />
               </div>
 
@@ -151,10 +135,10 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                   <input
                     type="tel"
                     required
-                    placeholder="Ej. +57 315 354 0285"
+                    placeholder="+57 315 354 0285"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 outline-none"
                   />
                 </div>
                 <div>
@@ -164,10 +148,10 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                   <input
                     type="email"
                     required
-                    placeholder="ejemplo@correo.com"
+                    placeholder="ejemplo@gmail.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 outline-none"
                   />
                 </div>
               </div>
@@ -180,7 +164,7 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                   <select
                     value={formData.area}
                     onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white focus:border-amber-400 outline-none"
                   >
                     {PRACTICE_AREAS.map((area) => (
                       <option key={area.id} value={area.id}>
@@ -197,7 +181,7 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white focus:border-amber-400 outline-none"
                   />
                 </div>
               </div>
@@ -211,7 +195,7 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                   placeholder="Describe brevemente la situación jurídica para asignar al especialista..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors resize-none"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 outline-none resize-none"
                 />
               </div>
 
@@ -220,37 +204,19 @@ export default function ConsultationModal({ isOpen, onClose, defaultAreaId }: Co
                 <span>Protegido por Secreto Profesional Abogado-Cliente.</span>
               </div>
 
-              <div className="space-y-2 pt-1">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-3 px-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-sm rounded-lg shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-                >
-                  {loading ? (
-                    <span className="inline-block animate-spin font-bold">Procesando...</span>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" /> Enviar Solicitud de Cita
-                    </>
-                  )}
-                </button>
-
-                <div className="relative flex py-1 items-center">
-                  <div className="flex-grow border-t border-slate-800"></div>
-                  <span className="flex-shrink mx-3 text-[10px] text-slate-500 font-semibold uppercase">O Agendar Directamente</span>
-                  <div className="flex-grow border-t border-slate-800"></div>
-                </div>
-
-                <a
-                  href={getGoogleCalendarUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 bg-slate-950 hover:bg-slate-850 border border-blue-500/40 text-blue-300 hover:text-white font-bold text-xs rounded-lg shadow-md flex items-center justify-center gap-2 transition-colors"
-                >
-                  <Calendar className="w-4 h-4 text-blue-400" />
-                  Agendar Cita en Google Calendar <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3 px-6 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-sm rounded-lg shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+              >
+                {loading ? (
+                  <span className="inline-block animate-spin font-bold">Procesando...</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" /> Enviar Solicitud de Cita
+                  </>
+                )}
+              </button>
             </form>
           )}
         </div>
