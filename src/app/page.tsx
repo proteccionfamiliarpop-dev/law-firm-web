@@ -314,7 +314,7 @@ export default function Home() {
               >
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
-                    {getIconComponent(area.iconName)}
+                    {getIconComponent(area.id)}
                   </div>
                   <h3 className="text-xl font-bold text-white font-serif mb-3 group-hover:text-amber-300 transition-colors">
                     {area.title}
