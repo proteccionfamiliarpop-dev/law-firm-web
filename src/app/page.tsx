@@ -64,42 +64,42 @@ export default function Home() {
       <Navbar onOpenConsultation={scrollToBooking} />
 
       <main className="flex-1">
-        {/* HERO SECTION — STITCH WARM IVORY & EDITORIAL PHOTO FRAMING */}
-        <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden border-b border-[#E5DFD5]">
+        {/* HERO SECTION — STITCH WARM IVORY & EDITORIAL PHOTO FRAMING (QUIET LUXURY REFINED) */}
+        <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-36 overflow-hidden border-b border-[#E5DFD5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
-              {/* Left Column: Headline & Value Prop */}
-              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DFD5]/50 border border-[#D8D1C5] text-[#0B2818] text-xs font-semibold uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5 text-[#0B2818]" />
-                  <span>Derecho Civil & Familiar en Popayán y Cali</span>
+              {/* Left Column: Pure Quiet Luxury Headline & Storytelling */}
+              <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
+                
+                {/* 1 Single Discrete Top Badge */}
+                <div>
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B2818]/10 text-[#0B2818] text-[11px] font-bold uppercase tracking-widest font-serif border border-[#0B2818]/20">
+                    <Sparkles className="w-3.5 h-3.5 text-[#0B2818]" />
+                    Firma Boutique • Popayán & Cali
+                  </span>
                 </div>
 
+                {/* Main Headline: Empathy, Clarity & Authority */}
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#1A1A1A] leading-[1.12] tracking-tight">
-                  Abogado Especialista en <br className="hidden sm:inline" />
-                  Derecho de Familia en Popayán
+                  Transformamos la Incertidumbre en <br className="hidden sm:inline" />
+                  <span className="italic font-normal text-[#0B2818]">Tranquilidad Patrimonial</span> & Familiar
                 </h1>
 
+                {/* Storytelling Subtitle */}
                 <p className="text-base sm:text-lg text-[#444444] leading-relaxed font-normal max-w-2xl">
-                  Navegamos la transición hacia su nueva etapa con la autoridad y discreción que su legado familiar merece. Litigio de alto nivel y acuerdos notariales en la Ciudad Blanca y Cali.
+                  Navegamos la disolución notarial, la protección de activos y los acuerdos de custodia con el más alto rigor académico y reserva absoluta. Soluciones legales de alto nivel en el Cauca y Valle del Cauca.
                 </p>
 
-                {/* Director Credentials Badges */}
-                <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 text-xs text-[#0B2818] font-semibold pt-1">
-                  <span className="bg-[#FAF8F5] border border-[#E5DFD5] px-3.5 py-1.5 rounded-xl shadow-sm flex items-center gap-1.5">
-                    <GraduationCap className="w-4 h-4 text-[#0B2818]" /> Dr. Alexander Solano
-                  </span>
-                  <span className="bg-[#FAF8F5] border border-[#E5DFD5] px-3.5 py-1.5 rounded-xl shadow-sm flex items-center gap-1.5">
-                    <BookOpen className="w-4 h-4 text-[#0B2818]" /> Cand. Doctor en Derecho & Magíster
-                  </span>
-                  <span className="bg-[#FAF8F5] border border-[#E5DFD5] px-3.5 py-1.5 rounded-xl shadow-sm flex items-center gap-1.5">
-                    <Award className="w-4 h-4 text-[#0B2818]" /> Conciliador Oficial
-                  </span>
+                {/* Single Refined Credential Line */}
+                <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs text-[#0B2818] font-serif border-l-2 border-[#0B2818] pl-3 py-1 font-semibold text-left">
+                  <span>Dirección del Dr. Alexander Solano</span>
+                  <span className="text-[#888888]">•</span>
+                  <span className="text-[#555555]">Cand. Doctor en Derecho & Conciliador Oficial</span>
                 </div>
 
-                {/* CTAs */}
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                {/* Primary Action Buttons */}
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                   <button
                     onClick={scrollToBooking}
                     className="w-full sm:w-auto px-8 py-4 bg-[#0B2818] hover:bg-[#071C11] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
@@ -111,31 +111,29 @@ export default function Home() {
                     href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20solicitar%20asesor%C3%ADa%20legal%20en%20Popay%C3%A1n/Cali"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-7 py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full sm:w-auto px-7 py-4 bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-md"
                   >
                     <MessageSquare className="w-4 h-4" />
                     WhatsApp Directo: +57 315 354 0285
                   </a>
                 </div>
 
-                <div className="pt-2 flex items-center justify-center lg:justify-start gap-6 text-xs text-[#666666]">
+                {/* Single Trust Indicator */}
+                <div className="pt-1 flex items-center justify-center lg:justify-start text-xs text-[#666666] font-medium">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-700" /> Secreto Profesional Blindado
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-700" /> Atiende Dr. Alexander Solano
+                    <Lock className="w-4 h-4 text-emerald-800" /> Secreto Profesional Abogado-Cliente (Art. 74 C.P. & Ley 1123 de 2007)
                   </span>
                 </div>
               </div>
 
-              {/* Right Column: Stitch Editorial Photo Framing with Dr. Solano Photo */}
+              {/* Right Column: Editorial Photo Framing with Aspect Ratio 4:5 */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative group w-full max-w-md">
-                  <div className="relative bg-[#FAF8F5] border-2 border-[#E5DFD5] rounded-3xl p-4 shadow-2xl space-y-4">
-                    <div className="relative h-96 rounded-2xl overflow-hidden shadow-inner border border-[#E5DFD5]">
+                  <div className="relative bg-[#FAF8F5] border border-[#E5DFD5] rounded-3xl p-4 shadow-2xl space-y-4">
+                    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-inner border border-[#E5DFD5]">
                       <img
                         src="https://proteccionfamiliar.co/wp-content/uploads/2026/07/Alexander-Solano-Abogado.jpeg"
-                        alt="Dr. Alexander Solano Abogado"
+                        alt="Dr. Alexander Solano - Abogado de Familia Popayán"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0B2818]/90 via-[#0B2818]/20 to-transparent" />
@@ -151,12 +149,12 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-center justify-between text-xs pt-1">
-                      <span className="text-[#555555] font-semibold">T.P. Nº. 182.354 CSJ</span>
+                      <span className="text-[#555555] font-semibold font-serif">T.P. Nº. 182.354 CSJ</span>
                       <button
                         onClick={() => setActiveAttorneyModal(directorAttorney)}
                         className="text-[#0B2818] hover:underline font-bold flex items-center gap-1"
                       >
-                        Ver Perfil & Obras <ArrowUpRight className="w-3.5 h-3.5" />
+                        Ver Ficha Profesional <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
@@ -165,14 +163,14 @@ export default function Home() {
 
             </div>
 
-            {/* STATS STRIP MATCHING STITCH */}
-            <div className="mt-16 grid grid-cols-3 gap-6 max-w-3xl mx-auto border-t border-[#E5DFD5] pt-10 text-center">
+            {/* REFINED STATS STRIP WITH SAND DIVIDERS */}
+            <div className="mt-20 grid grid-cols-3 gap-6 max-w-3xl mx-auto border-t border-[#E5DFD5] pt-10 text-center">
               {FIRM_INFO.stats.map((stat, idx) => (
-                <div key={idx} className="space-y-1">
+                <div key={idx} className={`space-y-1 ${idx < 2 ? 'border-r border-[#E5DFD5] pr-4' : ''}`}>
                   <div className="text-2xl sm:text-4xl font-bold font-serif text-[#0B2818]">
                     {stat.value}
                   </div>
-                  <div className="text-xs font-semibold text-[#666666] uppercase tracking-wider">
+                  <div className="text-xs font-semibold text-[#666666] uppercase tracking-wider font-serif">
                     {stat.label}
                   </div>
                 </div>
