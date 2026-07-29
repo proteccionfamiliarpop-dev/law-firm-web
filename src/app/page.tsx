@@ -30,7 +30,7 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ConsultationModal from '@/components/ConsultationModal';
+import BookingSection from '@/components/BookingSection';
 import PracticeAreaModal from '@/components/PracticeAreaModal';
 import AttorneyModal from '@/components/AttorneyModal';
 import { 
@@ -47,22 +47,20 @@ import {
 } from '@/lib/data';
 
 export default function Home() {
-  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [selectedAreaId, setSelectedAreaId] = useState<string | undefined>();
   const [activePracticeModalArea, setActivePracticeModalArea] = useState<PracticeArea | null>(null);
   const [activeAttorneyModal, setActiveAttorneyModal] = useState<Attorney | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const handleOpenConsultationForArea = (areaId: string) => {
-    setSelectedAreaId(areaId);
-    setIsConsultationOpen(true);
+  const scrollToBooking = () => {
+    const el = document.getElementById('agendar');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   const directorAttorney = ATTORNEYS.find(a => a.id === 'alexander-solano') || ATTORNEYS[0];
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#1A1A1A] flex flex-col font-sans selection:bg-[#0B2818] selection:text-white relative">
-      <Navbar onOpenConsultation={() => { setSelectedAreaId(undefined); setIsConsultationOpen(true); }} />
+      <Navbar onOpenConsultation={scrollToBooking} />
 
       <main className="flex-1">
         {/* HERO SECTION — STITCH WARM IVORY & EDITORIAL PHOTO FRAMING */}
@@ -102,7 +100,7 @@ export default function Home() {
                 {/* CTAs */}
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                   <button
-                    onClick={() => setIsConsultationOpen(true)}
+                    onClick={scrollToBooking}
                     className="w-full sm:w-auto px-8 py-4 bg-[#0B2818] hover:bg-[#071C11] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
                   >
                     <Calendar className="w-4 h-4 text-amber-300" />
@@ -182,7 +180,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* NUESTRA ESTRATEGIA LEGAL GRID (MATCHING STITCH SCREENSHOT CARDS) */}
+        {/* NUESTRA ESTRATEGIA LEGAL GRID */}
         <section id="estrategia" className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="text-xs font-bold text-[#0B2818] uppercase tracking-widest font-serif">
@@ -212,14 +210,14 @@ export default function Home() {
                 </p>
               </div>
               <button
-                onClick={() => handleOpenConsultationForArea('divorcio-mutuo-acuerdo')}
+                onClick={scrollToBooking}
                 className="text-xs font-bold text-[#0B2818] hover:underline flex items-center gap-1.5 self-start"
               >
                 Agendar Notarial <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            {/* Card 2: Protección Patrimonial (HIGHLIGHTED IN DEEP EMERALD #0B2818 MATCHING STITCH SCREENSHOT) */}
+            {/* Card 2: Protección Patrimonial (HIGHLIGHTED IN DEEP EMERALD #0B2818) */}
             <div className="stitch-card-emerald p-8 flex flex-col justify-between space-y-6 shadow-2xl">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-amber-400/20 border border-amber-300/30 flex items-center justify-center text-amber-200">
@@ -233,7 +231,7 @@ export default function Home() {
                 </p>
               </div>
               <button
-                onClick={() => handleOpenConsultationForArea('proteccion-patrimonial')}
+                onClick={scrollToBooking}
                 className="text-xs font-bold text-amber-200 hover:text-white flex items-center gap-1.5 self-start"
               >
                 Blindar Patrimonio <ArrowRight className="w-3.5 h-3.5" />
@@ -254,7 +252,7 @@ export default function Home() {
                 </p>
               </div>
               <button
-                onClick={() => handleOpenConsultationForArea('custodia-alimentos')}
+                onClick={scrollToBooking}
                 className="text-xs font-bold text-[#0B2818] hover:underline flex items-center gap-1.5 self-start"
               >
                 Consultar Custodia <ArrowRight className="w-3.5 h-3.5" />
@@ -275,7 +273,7 @@ export default function Home() {
                 </p>
               </div>
               <button
-                onClick={() => handleOpenConsultationForArea('litigio-contencioso')}
+                onClick={scrollToBooking}
                 className="text-xs font-bold text-[#0B2818] hover:underline flex items-center gap-1.5 self-start"
               >
                 Iniciar Proceso <ArrowRight className="w-3.5 h-3.5" />
@@ -285,7 +283,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* EL CAMINO A LA RESOLUCIÓN TIMELINE CARDS (STITCH DESIGN) */}
+        {/* EL CAMINO A LA RESOLUCIÓN TIMELINE CARDS */}
         <section className="py-20 lg:py-28 bg-[#F3EFEA] border-y border-[#E5DFD5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -298,7 +296,7 @@ export default function Home() {
                 </h2>
               </div>
               <button
-                onClick={() => setIsConsultationOpen(true)}
+                onClick={scrollToBooking}
                 className="px-6 py-3 bg-[#0B2818] hover:bg-[#071C11] text-white font-bold text-xs uppercase tracking-wider rounded-xl shrink-0 transition-colors"
               >
                 Iniciar mi proceso
@@ -323,7 +321,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DIRECTORIO DE POPAYÁN CARDS (MATCHING STITCH MOBILE SCREENSHOT) */}
+        {/* EMBEDDED DEDICATED BOOKING FUNNEL SECTION (REPLACING MODAL POPUP AS REQUESTED) */}
+        <BookingSection />
+
+        {/* DIRECTORIO DE POPAYÁN CARDS */}
         <section id="directorio" className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#0B2818] text-white rounded-3xl p-8 lg:p-12 shadow-2xl space-y-8">
             <div className="max-w-2xl space-y-2">
@@ -425,6 +426,12 @@ export default function Home() {
                     >
                       Ver Ficha Profesional Completa
                     </button>
+                    <button
+                      onClick={scrollToBooking}
+                      className="px-6 py-3 bg-[#FAF8F5] hover:bg-[#E5DFD5]/50 border border-[#E5DFD5] text-[#0B2818] font-bold text-xs uppercase tracking-wider rounded-xl transition-colors"
+                    >
+                      Agendar Consulta con el Dr. Solano
+                    </button>
                   </div>
                 </div>
 
@@ -514,26 +521,11 @@ export default function Home() {
         </span>
       </a>
 
-      {/* MODALS */}
-      <ConsultationModal
-        isOpen={isConsultationOpen}
-        onClose={() => setIsConsultationOpen(false)}
-        defaultAreaId={selectedAreaId}
-      />
-
-      <PracticeAreaModal
-        area={activePracticeModalArea}
-        onClose={() => setActivePracticeModalArea(null)}
-        onSelectArea={(areaId) => handleOpenConsultationForArea(areaId)}
-      />
-
+      {/* ATTORNEY MODAL FOR PUBLICATIONS AND CREDENTIALS */}
       <AttorneyModal
         attorney={activeAttorneyModal}
         onClose={() => setActiveAttorneyModal(null)}
-        onOpenConsultation={() => {
-          setSelectedAreaId(undefined);
-          setIsConsultationOpen(true);
-        }}
+        onOpenConsultation={scrollToBooking}
       />
     </div>
   );
