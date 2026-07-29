@@ -171,7 +171,7 @@ export default function CaliClient({ caliFaqs }: CaliClientProps) {
         <BookingSection />
 
         {/* CALI FAQS */}
-        <section className="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <section itemScope itemType="https://schema.org/FAQPage" className="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="text-center space-y-3">
             <h2 className="text-xs font-bold text-[#0B2818] uppercase tracking-widest font-serif">
               Preguntas Frecuentes en Cali
@@ -183,9 +183,9 @@ export default function CaliClient({ caliFaqs }: CaliClientProps) {
 
           <div className="space-y-4">
             {caliFaqs.map((faq, idx) => (
-              <div key={idx} className="bg-[#FAF8F5] border border-[#E5DFD5] p-6 rounded-2xl space-y-2">
-                <h4 className="text-base font-serif font-bold text-[#1A1A1A]">{faq.q}</h4>
-                <p className="text-xs text-[#555555] leading-relaxed">{faq.a}</p>
+              <div key={idx} itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="bg-[#FAF8F5] border border-[#E5DFD5] p-6 rounded-2xl space-y-2">
+                <h4 itemProp="name" className="text-base font-serif font-bold text-[#1A1A1A]">{faq.q}</h4>
+                <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer"><p itemProp="text" className="text-xs text-[#555555] leading-relaxed">{faq.a}</p></div>
               </div>
             ))}
           </div>

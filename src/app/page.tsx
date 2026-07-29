@@ -59,9 +59,61 @@ export default function Home() {
 
   const directorAttorney = ATTORNEYS.find(a => a.id === 'alexander-solano') || ATTORNEYS[0];
 
+  
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': FAQS.map(faq => ({
+      '@type': 'Question',
+      'name': faq.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.answer
+      }
+    }))
+  };
+
+  const scholarlyArticlesJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'Obras e Investigaciones Jurídicas del Dr. Alexander Solano',
+    'itemListElement': [
+      {
+        '@type': 'ScholarlyArticle',
+        'name': 'Resiliencia como respuesta a la ausencia del estado',
+        'author': {
+          '@type': 'Person',
+          'name': 'Dr. Alexander Solano'
+        },
+        'url': 'https://www.researchgate.net/publication/401072716_Resiliencia_como_respuesta_a_la_ausencia_del_estado_la_influencia_del_conflicto_armado_colombiano_en_las_familias_diversas_desde_una_mirada_sociojuridica',
+        'inLanguage': 'es'
+      },
+      {
+        '@type': 'Book',
+        'name': 'Publicaciones e Investigaciones sobre Derecho Probatorio en Colombia',
+        'author': {
+          '@type': 'Person',
+          'name': 'Dr. Alexander Solano'
+        },
+        'publisher': 'Editorial Uniautónoma',
+        'url': 'https://repositorio.uniautonoma.edu.co/handle/123456789/744'
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#1A1A1A] flex flex-col font-sans selection:bg-[#0B2818] selection:text-white relative">
       <Navbar onOpenConsultation={scrollToBooking} />
+
+      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(scholarlyArticlesJsonLd) }}
+      />
 
       <main className="flex-1">
         {/* HERO SECTION — STITCH WARM IVORY & EDITORIAL PHOTO FRAMING (QUIET LUXURY REFINED) */}
@@ -356,7 +408,7 @@ export default function Home() {
         </section>
 
         {/* DR. ALEXANDER SOLANO DETAILED PROFILE & ACADEMIC REPOSITORY */}
-        <section id="director" className="py-20 bg-[#F3EFEA] border-b border-[#E5DFD5]">
+        <section id="director" itemScope itemType="https://schema.org/Person" className="py-20 bg-[#F3EFEA] border-b border-[#E5DFD5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-[#FAF8F5] border border-[#E5DFD5] rounded-3xl p-8 lg:p-12 shadow-xl space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -440,7 +492,7 @@ export default function Home() {
         </section>
 
         {/* FAQ ACCORDION */}
-        <section id="faq" className="py-20 lg:py-28 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="faq" itemScope itemType="https://schema.org/FAQPage" className="py-20 lg:py-28 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <h2 className="text-xs font-bold text-[#0B2818] uppercase tracking-widest font-serif">
               Resuelve tus Dudas
@@ -456,18 +508,18 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#FAF8F5] border border-[#E5DFD5] rounded-xl overflow-hidden transition-all shadow-sm"
+                  itemScope itemProp="mainEntity" itemType="https://schema.org/Question" className="bg-[#FAF8F5] border border-[#E5DFD5] rounded-xl overflow-hidden transition-all shadow-sm"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                     className="w-full p-5 text-left flex items-center justify-between font-serif font-bold text-[#1A1A1A] text-sm hover:text-[#0B2818] transition-colors gap-4"
                   >
-                    <span>{faq.question}</span>
+                    <span itemProp="name">{faq.question}</span>
                     <ChevronDown className={`w-5 h-5 text-[#0B2818] transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs text-[#555555] leading-relaxed border-t border-[#E5DFD5]">
-                      {faq.answer}
+                    <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer" className="px-5 pb-5 pt-1 text-xs text-[#555555] leading-relaxed border-t border-[#E5DFD5]"><div itemProp="text">
+                      {faq.answer}</div>
                     </div>
                   )}
                 </div>

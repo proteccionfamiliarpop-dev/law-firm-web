@@ -69,84 +69,96 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
+  const jsonLdGraph = {
     '@context': 'https://schema.org',
-    '@type': 'LegalService',
-    'name': 'Protección Familiar - Firma de Abogados',
-    'image': 'https://proteccionfamiliar.co/wp-content/uploads/2026/07/Alexander-Solano-Abogado.jpeg',
-    '@id': 'https://proteccionfamiliar.co',
-    'url': 'https://proteccionfamiliar.co',
-    'telephone': '+573153540285',
-    'email': 'contacto@proteccionfamiliar.co',
-    'priceRange': '$$$',
-    'address': {
-      '@type': 'PostalAddress',
-      'streetAddress': 'Cra 8 #2-44, Oficina 313, Centro',
-      'addressLocality': 'Popayán',
-      'addressRegion': 'Cauca',
-      'postalCode': '190001',
-      'addressCountry': 'CO',
-    },
-    'geo': {
-      '@type': 'GeoCoordinates',
-      'latitude': 2.4419,
-      'longitude': -76.6063,
-    },
-    'founder': {
-      '@type': 'Person',
-      'name': 'Dr. Alexander Solano',
-      'jobTitle': 'Socio Director & Abogado Especialista en Familia',
-      'alumniOf': 'Universidad del Cauca',
-      'sameAs': [
-        'https://repositorio.uniautonoma.edu.co/handle/123456789/744',
-        'https://www.researchgate.net/publication/401072716_Resiliencia_como_respuesta_a_la_ausencia_del_estado_la_influencia_del_conflicto_armado_colombiano_en_las_familias_diversas_desde_una_mirada_sociojuridica',
-        'https://sci-cult.net/index.php/cult/article/view/3761/2229'
-      ]
-    },
-    'areaServed': [
+    '@graph': [
       {
-        '@type': 'AdministrativeArea',
-        'name': 'Popayán, Cauca, Colombia'
+        '@type': 'Organization',
+        '@id': 'https://proteccionfamiliar.co/#organization',
+        'name': 'Protección Familiar',
+        'url': 'https://proteccionfamiliar.co',
+        'logo': 'https://proteccionfamiliar.co/wp-content/uploads/2026/07/Alexander-Solano-Abogado.jpeg',
+        'email': 'contacto@proteccionfamiliar.co',
+        'telephone': '+573153540285',
+        'sameAs': [
+          'https://repositorio.uniautonoma.edu.co/handle/123456789/744',
+          'https://www.researchgate.net/publication/401072716_Resiliencia_como_respuesta_a_la_ausencia_del_estado_la_influencia_del_conflicto_armado_colombiano_en_las_familias_diversas_desde_una_mirada_sociojuridica',
+          'https://sci-cult.net/index.php/cult/article/view/3761/2229'
+        ]
       },
       {
-        '@type': 'AdministrativeArea',
-        'name': 'Cali, Valle del Cauca, Colombia'
+        '@type': 'LegalService',
+        '@id': 'https://proteccionfamiliar.co/#legalservice',
+        'name': 'Protección Familiar — Despacho Jurídico Dr. Alexander Solano',
+        'image': 'https://proteccionfamiliar.co/wp-content/uploads/2026/07/Alexander-Solano-Abogado.jpeg',
+        'url': 'https://proteccionfamiliar.co',
+        'telephone': '+573153540285',
+        'email': 'contacto@proteccionfamiliar.co',
+        'priceRange': '$$$',
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': 'Cra 8 #2-44, Oficina 313, Centro',
+          'addressLocality': 'Popayán',
+          'addressRegion': 'Cauca',
+          'postalCode': '190001',
+          'addressCountry': 'CO'
+        },
+        'geo': {
+          '@type': 'GeoCoordinates',
+          'latitude': 2.4419,
+          'longitude': -76.6063
+        },
+        'openingHoursSpecification': {
+          '@type': 'OpeningHoursSpecification',
+          'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          'opens': '08:00',
+          'closes': '18:00'
+        },
+        'founder': {
+          '@type': 'Person',
+          '@id': 'https://proteccionfamiliar.co/#person-alexander-solano'
+        },
+        'areaServed': [
+          {
+            '@type': 'AdministrativeArea',
+            'name': 'Popayán, Cauca, Colombia'
+          },
+          {
+            '@type': 'AdministrativeArea',
+            'name': 'Cali, Valle del Cauca, Colombia'
+          }
+        ]
+      },
+      {
+        '@type': 'Person',
+        '@id': 'https://proteccionfamiliar.co/#person-alexander-solano',
+        'name': 'Dr. Alexander Solano',
+        'jobTitle': 'Socio Director & Abogado Especialista en Derecho de Familia',
+        'description': 'Abogado, Conciliador en Derecho, Especialista en Familia, Magíster en Derecho y Candidato a Doctor en Derecho. Investigador sobre derecho probatorio y familias en Colombia.',
+        'worksFor': {
+          '@id': 'https://proteccionfamiliar.co/#legalservice'
+        },
+        'alumniOf': {
+          '@type': 'EducationalOrganization',
+          'name': 'Universidad del Cauca'
+        },
+        'sameAs': [
+          'https://repositorio.uniautonoma.edu.co/handle/123456789/744',
+          'https://www.researchgate.net/publication/401072716_Resiliencia_como_respuesta_a_la_ausencia_del_estado_la_influencia_del_conflicto_armado_colombiano_en_las_familias_diversas_desde_una_mirada_sociojuridica',
+          'https://sci-cult.net/index.php/cult/article/view/3761/2229'
+        ]
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://proteccionfamiliar.co/#website',
+        'url': 'https://proteccionfamiliar.co',
+        'name': 'Protección Familiar',
+        'publisher': {
+          '@id': 'https://proteccionfamiliar.co/#organization'
+        },
+        'inLanguage': 'es-CO'
       }
-    ],
-    'hasOfferCatalog': {
-      '@type': 'OfferCatalog',
-      'name': 'Servicios Jurídicos de Familia y Protección Patrimonial',
-      'itemListElement': [
-        {
-          '@type': 'Offer',
-          'itemOffered': {
-            '@type': 'Service',
-            'name': 'Divorcio por Mutuo Acuerdo Notarial'
-          }
-        },
-        {
-          '@type': 'Offer',
-          'itemOffered': {
-            '@type': 'Service',
-            'name': 'Protección Patrimonial y Capitulaciones'
-          }
-        },
-        {
-          '@type': 'Offer',
-          'itemOffered': {
-            '@type': 'Service',
-            'name': 'Custodia de Menores y Régimen de Alimentos'
-          }
-        },
-        {
-          '@type': 'Offer',
-          'itemOffered': {
-            '@type': 'Service',
-            'name': 'Litigio de Sucesiones e Impugnación de Paternidad'
-          }
-        }
-      ]
-    }
+    ]
   };
 
   return (
@@ -154,7 +166,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
       <body className="bg-[#FAF8F5] text-[#1A1A1A] antialiased selection:bg-[#0B2818] selection:text-white">
