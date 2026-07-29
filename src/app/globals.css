@@ -4,66 +4,63 @@
 
 @layer base {
   :root {
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    --bg-primary: #FAF8F5;
+    --bg-secondary: #F3EFEA;
+    --bg-bone: #FAF8F5;
+    --emerald-dark: #0B2818;
+    --emerald-hover: #071C11;
+    --text-primary: #1A1A1A;
+    --text-muted: #555555;
+    --border-sand: #E5DFD5;
   }
 
   body {
-    background-color: #050811;
-    color: #f8fafc;
-    font-family: var(--font-sans), sans-serif;
+    background-color: #FAF8F5;
+    color: #1A1A1A;
+    font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, .font-serif {
-    font-family: var(--font-serif), Georgia, serif;
+    font-family: var(--font-serif, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif);
   }
 }
 
-/* Custom Luxury Styling */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #FFF0CA 0%, #F59E0B 35%, #D97706 70%, #B45309 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.stitch-card {
+  background-color: #FAF8F5;
+  border: 1px solid #E5DFD5;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
-.gold-gradient-bg {
-  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 40%, #D97706 80%, #92400E 100%);
+.stitch-card:hover {
+  border-color: #0B2818;
+  box-shadow: 0 10px 25px -5px rgba(11, 40, 24, 0.08);
 }
 
-.gold-glow-card {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(245, 158, 11, 0.2);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px 0 rgba(245, 158, 11, 0.08);
+.stitch-card-emerald {
+  background-color: #0B2818;
+  color: #FFFFFF;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
-.gold-glow-card:hover {
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.9), 0 0 30px 0 rgba(245, 158, 11, 0.18);
-  transform: translateY(-4px);
-}
-
-.glass-header {
-  background: rgba(5, 8, 17, 0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+.stitch-card-emerald:hover {
+  background-color: #071C11;
+  box-shadow: 0 12px 30px -5px rgba(11, 40, 24, 0.25);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: #FAF8F5;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #D8D1C5;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #d97706;
+  background: #0B2818;
 }

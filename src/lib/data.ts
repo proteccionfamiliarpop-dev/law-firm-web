@@ -56,109 +56,123 @@ export interface FAQItem {
   category: string;
 }
 
+export interface LocalDirectoryItem {
+  name: string;
+  desc: string;
+  address: string;
+  category: string;
+}
+
 export const FIRM_INFO = {
-  name: 'Protección Familiar & Asociados',
+  name: 'Protección Familiar',
   founder: 'Dr. Alexander Solano',
-  tagline: 'Plataforma Jurídica Especializada en Derecho de Familia & Protección Patrimonial',
-  description: 'Firma jurídica de referencia en Colombia dirigida por el Dr. Alexander Solano. Acompañamiento empático, rigor académico y estrategia legal de alta precisión en derecho familiar, sucesiones y contratos civiles en Popayán, Cali y a nivel nacional.',
+  domain: 'proteccionfamiliar.co',
+  tagline: 'Defensa legal con autoridad y empatía en Popayán y Cali',
+  description: 'Firma jurídica boutique especializada en Derecho de Familia, Sucesiones, Divorcios y Protección Patrimonial dirigida por el Dr. Alexander Solano. Acompañamiento humano, rigor académico e intervención judicial de alto nivel.',
   phone: '+57 315 354 0285',
   emergencyPhone: '+57 315 354 0285',
-  email: 'contacto@proteccionfamiliar.law',
+  email: 'contacto@proteccionfamiliar.co',
   address: 'Cra 8 #2-44, Oficina 313, Centro, Popayán, Cauca',
-  secondaryAddress: 'Cobertura Directa en Cali (Valle del Cauca) & Servicios Virtuales en Colombia',
-  workingHours: 'Lunes a Viernes: 8:00 AM - 7:00 PM | Atención Directa 24/7',
+  secondaryAddress: 'Sede y Cobertura Directa en Cali (Valle del Cauca) & Servicios Virtuales en Colombia',
+  workingHours: 'Lunes a Viernes: 8:00 AM - 7:00 PM | Guardia 24/7',
   stats: [
-    { label: 'Casos Resueltos', value: '2,500+' },
-    { label: 'Efectividad en Conciliación', value: '98.4%' },
-    { label: 'Trayectoria Académica', value: '18+ Años' },
-    { label: 'Atención Prioritaria', value: '24/7' }
+    { label: 'Casos Exitosos', value: '15+' },
+    { label: 'Casos Eficaces', value: '450+' },
+    { label: 'Guía Preferente', value: '03' }
   ]
 };
 
 export const PRACTICE_AREAS: PracticeArea[] = [
   {
-    id: 'derecho-familiar',
-    title: 'Derecho de Familia & Sucesiones',
+    id: 'divorcio-mutuo-acuerdo',
+    title: 'Divorcio por Mutuo Acuerdo',
     category: 'Familia',
-    shortDesc: 'Sucesiones, testamentos, divorcios incausados, uniones maritales de hecho, régimen de alimentos y custodia.',
-    fullDesc: 'Asistencia y representación de alta discreción dirigida por el Dr. Alexander Solano en disputas y acuerdos familiares en Popayán y Cali: Juicios sucesorios, Testamentos, Donaciones, Fijación y Reclamo de Alimentos, Investigación o Impugnación de Paternidad/Maternidad, Capitulaciones, Matrimonio, Divorcios, Liquidación de Sociedad Conyugal y Patrimonial, y Adopción.',
+    shortDesc: 'Trámites ágiles ante notaría para disoluciones consensuadas, garantizando un proceso sin fricciones y con absoluta reserva.',
+    fullDesc: 'Disolución del vínculo matrimonial e inventario de bienes de forma pacífica y notarial en Popayán y Cali. Redacción de acuerdos equitativos sin desgaste emocional.',
     benefits: [
-      'Estructuración de Testamentos e Impugnación Sucesoria',
-      'Divorcio y Liquidación de Sociedad Conyugal / Patrimonial',
-      'Investigación e Impugnación de Paternidad o Maternidad',
-      'Fijación, Cuota y Reclamo de Alimentos, Adopciones'
+      'Trámite notarial rápido en 5-10 días hábiles',
+      'Acuerdos compositivos de sociedad conyugal',
+      'Convenio regulador para tranquilidad de los cónyuges'
     ],
-    casesHandled: 980
+    casesHandled: 480
   },
   {
-    id: 'proteccion-patrimonial-contratos',
-    title: 'Contratos Civiles & Asuntos Inmobiliarios',
+    id: 'proteccion-patrimonial',
+    title: 'Protección Patrimonial',
     category: 'Patrimonio',
-    shortDesc: 'Blindaje, negociación y defensa en contratos de compraventa, arrendamiento, hipotecas y servidumbres.',
-    fullDesc: 'Consultoría e intervención jurídica en protección, elaboración, negociación y defensa de contratos civiles: Compraventa, permuta, arrendamiento, mutuo, depósito, mandato, hipoteca, anticresis, prenda y transacción. Consultoría Inmobiliaria en Popayán y Cali: Derechos de uso y habitación, servidumbres, acciones reivindicatorias y de simulación.',
+    shortDesc: 'Liquidación previa de sociedad conyugal y defensa de activos adquiridos antes del matrimonio o unión marital.',
+    fullDesc: 'Blindaje jurídico de bienes inmuebles, empresas familiares, capitulaciones matrimoniales y prevención de embargos o contingencias legales.',
     benefits: [
-      'Auditoría y Blindaje de Contratos Civiles y Comerciales',
-      'Derechos de uso, habitación y servidumbres inmobiliarias',
-      'Acciones Reivindicatorias y de Simulación Inmobiliaria',
-      'Blindaje patrimonial contra contingencias y embargo'
+      'Capitulaciones matrimoniales y patrimoniales',
+      'Separación preventiva de bienes',
+      'Blindaje inmobiliario y corporativo'
     ],
-    casesHandled: 720
+    casesHandled: 390
   },
   {
-    id: 'litigio-civil',
-    title: 'Litigio Civil & Representación Jurisdiccional',
+    id: 'custodia-alimentos',
+    title: 'Custodia y Alimentos',
+    category: 'Familia',
+    shortDesc: 'Estructuramos acuerdos de bienestar que protegen el futuro de sus hijos bajo los más altos estándares legales.',
+    fullDesc: 'Fijación, aumento, disminución y reclamo ejecutivo de cuota alimentaria, custodia compartida, patria potestad y régimen de visitas.',
+    benefits: [
+      'Interés superior de niños, niñas y adolescentes',
+      'Conciliaciones con fuerza ejecutiva y cosa juzgada',
+      'Acompañamiento ante ICBF y Defensorías'
+    ],
+    casesHandled: 520
+  },
+  {
+    id: 'litigio-contencioso',
+    title: 'Litigio Contencioso y Sucesiones',
     category: 'Litigio',
-    shortDesc: 'Representación técnica en procesos civiles y de responsabilidad patrimonial ante tribunales.',
-    fullDesc: 'Defensa estratégica ante la jurisdicción civil y de familia garantizando resultados favorables según las necesidades concretas del cliente en el Cauca, Valle del Cauca y Colombia.',
+    shortDesc: 'Representación rigurosa ante juzgados de familia cuando el acuerdo no es una opción, fundamentada en derecho probatorio.',
+    fullDesc: 'Procesos de sucesión testamentaria e intestada, impugnación y filiación de paternidad, y divorcios contenciosos ante tribunales del Cauca y Valle.',
     benefits: [
-      'Litigio ante Juzgados Civiles y de Familia',
-      'Acciones de Simulación y Nulidad de Contratos',
-      'Resolución de Conflictos Patrimoniales',
-      'Representación integral en procesos judiciales'
-    ],
-    casesHandled: 540
-  },
-  {
-    id: 'conciliacion-mediacion',
-    title: 'Conciliación en Derecho & Mediación',
-    category: 'MASC',
-    shortDesc: 'Mecanismos alternativos de solución de conflictos dirigidos por conciliadores oficiales en derecho.',
-    fullDesc: 'Resolución pacífica y vinculante de controversias familiares y civiles a través de procesos de conciliación en derecho con plena validez de cosa juzgada.',
-    benefits: [
-      'Actas de Conciliación con fuerza de Cosa Juzgada',
-      'Acuerdos compositivos de liquidación y alimentos',
-      'Solución ágil y económica de disputas',
-      'Asesoría técnica previa a la audiencia'
-    ],
-    casesHandled: 470
-  },
-  {
-    id: 'derecho-corporativo',
-    title: 'Empresa Familiar & Gobierno Corporativo',
-    category: 'Empresarial',
-    shortDesc: 'Estructuración jurídica de empresas familiares, protocolos de familia y acuerdos entre socios.',
-    fullDesc: 'Asesoramos a familias empresarias de Popayán y Cali en la transición generacional, ordenamiento patrimonial, gobierno corporativo y solución de disputas entre socios.',
-    benefits: [
-      'Protocolos de Empresa Familiar',
-      'Constitución de Sociedades (S.A.S., S.A.)',
-      'Registro de Marcas y Propiedad Intelectual',
-      'Contratación Civil y Comercial'
-    ],
-    casesHandled: 410
-  },
-  {
-    id: 'defensa-penal',
-    title: 'Defensa Penal & Acciones de Tutela',
-    category: 'Garantías',
-    shortDesc: 'Atención penal inmediata ante fiscalías, audiencias de control de garantías y tutelas urgentes.',
-    fullDesc: 'Defensa técnica rigurosa ante el sistema penal acumulativo y tramitación de Acciones de Tutela para la protección inmediata de derechos fundamentales.',
-    benefits: [
-      'Asistencia técnica inmediata 24 horas',
-      'Audiencias de Control de Garantías y Juicio',
-      'Tramitación de Acciones de Tutela y Amparos',
-      'Representación a víctimas'
+      'Liquidación sucesoria y adjudicación de inmuebles',
+      'Defensa técnica en audiencias judiciales',
+      'Impugnación o investigación de paternidad'
     ],
     casesHandled: 310
+  }
+];
+
+export const RESOLUTION_STEPS = [
+  {
+    step: '01',
+    title: 'Consulta Inicial',
+    desc: 'Análisis exhaustivo de su situación jurídica y objetivos personales en una sesión privada presencial o virtual.'
+  },
+  {
+    step: '02',
+    title: 'Diseño Estratégico',
+    desc: 'Elaboración de la hoja de ruta legal, ya sea conciliación notarial o preparación de demanda judicial.'
+  },
+  {
+    step: '03',
+    title: 'Ejecución y Cierre',
+    desc: 'Formalización ante Notaría o Juzgado y liquidación definitiva de vínculos e inmuebles con plena validez.'
+  }
+];
+
+export const POPAYAN_DIRECTORY: LocalDirectoryItem[] = [
+  {
+    name: 'Notarías de Popayán',
+    desc: 'Notaría Primera, Segunda y Tercera de Popayán para divorcios y escrituras.',
+    address: 'Centro Histórico, Popayán',
+    category: 'Notarías'
+  },
+  {
+    name: 'Palacio de Justicia (Juzgados de Familia)',
+    desc: 'Tribunales y Juzgados de Familia del Circuito de Popayán.',
+    address: 'Calle 4 # 2-01, Centro, Popayán',
+    category: 'Judicial'
+  },
+  {
+    name: 'ICBF Seccional Cauca',
+    desc: 'Centro Zonal Popayán para conciliaciones y derechos de menores.',
+    address: 'Carrera 6 # 3-45, Popayán',
+    category: 'Protección Infantil'
   }
 ];
 
@@ -170,9 +184,9 @@ export const ATTORNEYS: Attorney[] = [
     specialty: 'Derecho de Familia, Conciliador & Litigante Civil',
     experience: '18+ Años de Trayectoria | Magíster & Cand. Doctor en Derecho',
     education: 'Abogado, Conciliador | Especialista en Derecho de Familia | Magíster en Derecho | Candidato a Doctor en Derecho',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600',
-    bio: 'El Dr. Alexander Solano es Abogado, Conciliador, Especialista en Derecho de Familia, Magíster en Derecho y Candidato a Doctor en Derecho. Litigante de alto nivel, docente e investigador en instituciones de educación superior del Suroccidente colombiano. Autor y jurista de reconocidos libros académicos y artículos científicos de investigación en derecho familiar e identidad sociojurídica.',
-    email: 'alexandersolano@proteccionfamiliar.law',
+    image: 'https://proteccionfamiliar.co/wp-content/uploads/2026/07/Alexander-Solano-Abogado.jpeg',
+    bio: 'El Dr. Alexander Solano es Abogado, Conciliador, Especialista en Derecho de Familia, Magíster en Derecho y Candidato a Doctor en Derecho. Litigante de alto nivel, docente e investigador en instituciones de educación superior del Suroccidente colombiano. Autor y jurista de reconocidos libros académicos y artículos científicos en derecho familiar e identidad sociojurídica.',
+    email: 'contacto@proteccionfamiliar.co',
     phone: '+57 315 354 0285',
     publications: [
       {
@@ -200,103 +214,48 @@ export const ATTORNEYS: Attorney[] = [
         url: 'https://sci-cult.net/index.php/cult/article/view/3761/2229'
       }
     ]
-  },
-  {
-    id: 'sofia-valenzuela',
-    name: 'Dra. Sofía Valenzuela R.',
-    role: 'Socia Directora - Área Familiar',
-    specialty: 'Derecho de Familia, Custodia y Mediación',
-    experience: '16 años de experiencia',
-    education: 'Licenciada en Derecho | Magistra en Derecho Familiar',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600',
-    bio: 'Especialista en solución de controversias familiares complejas, adopciones y mediación de custodia infantil con enfoque en el interés superior de la infancia en Popayán y Cali.',
-    email: 'svalenzuela@proteccionfamiliar.law',
-    phone: '+57 315 354 0285'
-  },
-  {
-    id: 'carlos-morales',
-    name: 'Dr. Carlos Morales O.',
-    role: 'Director de Defensa Penal & Tutelas',
-    specialty: 'Sistema Penal Acusatorio & Garantías Constitucionales',
-    experience: '14 años de experiencia',
-    education: 'Abogado | Certificación en Litigación Oral',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600',
-    bio: 'Líder del equipo de respuesta inmediata 24/7. Ha litigado con éxito en audiencias penales complejas y tramitación de Acciones de Tutela en el Suroccidente colombiano.',
-    email: 'cmorales@proteccionfamiliar.law',
-    phone: '+57 315 354 0285'
-  },
-  {
-    id: 'elena-ramirez',
-    name: 'Dra. Elena Ramírez S.',
-    role: 'Socia Corporativa & Inmobiliaria',
-    specialty: 'Derecho Civil, Inmobiliario y Contratos',
-    experience: '11 años de experiencia',
-    education: 'Abogada | Magistra en Derecho Civil y Mercantil',
-    image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=600',
-    bio: 'Asesora en estructuración de contratos de arrendamiento, compraventas, hipotecas y acciones reivindicatorias de propiedad en Popayán, Cali y Valle del Cauca.',
-    email: 'eramirez@proteccionfamiliar.law',
-    phone: '+57 315 354 0285'
   }
 ];
 
 export const ARTICLES: Article[] = [
   {
     id: '1',
-    title: 'Sucesiones en Colombia: Guía Legal para la Adjudicación de Bienes sin Conflicto Familiar',
-    excerpt: 'Análisis paso a paso de los procesos sucesorios testamentarios e intestados según el Código General del Proceso en Colombia.',
-    category: 'Sucesiones',
-    readTime: '6 min de lectura',
+    title: 'La Ley de Divorcio en Colombia: Lo que debe saber',
+    excerpt: 'Análisis paso a paso de las causales y el divorcio sin culpa de mutuo acuerdo según la legislación vigente.',
+    category: 'Guía Legal',
+    readTime: '5 min de lectura',
     author: 'Dr. Alexander Solano',
     date: 'Julio 2026',
     url: '#'
   },
   {
     id: '2',
-    title: 'Divorcio de Mutuo Acuerdo vs. Divorcio Incausado: Derechos, Tiempos y Custodia de Menores',
-    excerpt: 'Aspectos legales clave para disolver el vínculo matrimonial y liquidar la sociedad conyugal de forma pacífica y protegida.',
-    category: 'Familia',
-    readTime: '8 min de lectura',
+    title: 'Sociedad Conyugal vs. Unión Marital de Hecho',
+    excerpt: 'Diferencias patrimoniales, capitulaciones y derechos sucesorios en parejas casadas o en convivencia.',
+    category: 'Patrimonio',
+    readTime: '6 min de lectura',
     author: 'Dr. Alexander Solano',
     date: 'Junio 2026',
     url: '#'
-  },
-  {
-    id: '3',
-    title: 'La Reconfiguración de la Familia en el Derecho Colombiano Contemporáneo',
-    excerpt: 'Reflexión académica sobre la protección jurídica de las familias diversas y las uniones maritales de hecho en el Suroccidente colombiano.',
-    category: 'Investigación Académica',
-    readTime: '10 min de lectura',
-    author: 'Dr. Alexander Solano',
-    date: 'Mayo 2026',
-    url: 'https://sci-cult.net/index.php/cult/article/view/3761/2229'
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
-    clientName: 'Roberto G.',
+    clientName: 'M. Valencia',
     location: 'Popayán, Cauca',
-    caseType: 'Sucesión Completa & Contratos Civiles',
-    comment: 'El acompañamiento riguroso y humano del Dr. Alexander Solano garantizó una sucesión justa y la preservación de nuestros inmuebles familiares en Popayán. Total discreción.',
-    rating: 5,
-    date: 'Hace 2 meses'
-  },
-  {
-    id: '2',
-    clientName: 'Mariana H.',
-    location: 'Cali, Valle del Cauca',
-    caseType: 'Filiación & Cuota Alimenticia',
-    comment: 'El equipo del Dr. Solano abordó mi caso con un nivel de empatía e investigación académica brillante. Logramos el mejor acuerdo para la tranquilidad de mis hijos.',
+    caseType: 'Divorcio & Liquidación de Bienes',
+    comment: 'La discreción y autoridad del Dr. Alexander Solano permitieron cerrar una negociación compleja en notarías de Popayán de forma pacífica y justa.',
     rating: 5,
     date: 'Hace 1 mes'
   },
   {
-    id: '3',
-    clientName: 'Grupo Comercial Cauca',
-    location: 'Suroccidente Colombiano',
-    caseType: 'Protocolo de Empresa Familiar & Contratos',
-    comment: 'Protección Familiar estructuró nuestro gobierno corporativo y blindó los contratos civiles de la compañía con impecable profesionalismo.',
+    id: '2',
+    clientName: 'Carlos A.',
+    location: 'Cali, Valle del Cauca',
+    caseType: 'Custodia & Regulación de Alimentos',
+    comment: 'Excelente rigor académico y humano. El acuerdo de custodia compartida fue perfecto para la estabilidad emocional de mis hijos.',
     rating: 5,
     date: 'Hace 3 semanas'
   }
@@ -304,23 +263,18 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const FAQS: FAQItem[] = [
   {
-    category: 'Ubicación & Cobertura',
-    question: '¿Dónde está ubicada la oficina principal de la firma de abogados?',
-    answer: 'Nuestra sede principal en Popayán se ubica en la Carrera 8 # 2-44, Oficina 313, Edificio Centro, Popayán, Cauca. Prestamos atención presencial y representación judicial en Cali (Valle del Cauca) y asesoría virtual a nivel nacional en Colombia.'
+    category: 'Divorcio',
+    question: '¿Cuánto tarda un divorcio express por mutuo acuerdo en Popayán?',
+    answer: 'Si hay acuerdo total entre las partes, el trámite notarial en Popayán o Cali se completa habitualmente en un lapso de 5 a 10 días hábiles, dependiendo de la firma de la escritura pública.'
   },
   {
-    category: 'Especialista',
-    question: '¿Quién coordina los casos de Derecho de Familia y Sucesiones?',
-    answer: 'Todos los casos estratégicos de Derecho de Familia, Sucesiones y Contratos Civiles son dirigidos supervisadamente por el Dr. Alexander Solano, Abogado, Conciliador, Magíster en Derecho y Candidato a Doctor en Derecho.'
+    category: 'Patrimonio',
+    question: '¿Qué sucede con los bienes comprados antes del matrimonio?',
+    answer: 'Los bienes adquiridos con anterioridad al matrimonio no forman parte de la sociedad conyugal. Sin embargo, los frutos o valorizaciones requieren una adecuada liquidación y prueba jurídica para evitar confusiones patrimoniales.'
   },
   {
-    category: 'Sincronización & Citas',
-    question: '¿Cómo funciona el agendamiento en tiempo real con Google Calendar?',
-    answer: 'Al hacer clic en "Agendar Consulta", nuestro sistema se conecta en vivo con Google Calendar para permitirte reservar el horario disponible de tu preferencia con generación automática de enlace de Google Meet o cita presencial.'
-  },
-  {
-    category: 'Confidencialidad & EEAT',
-    question: '¿Mis datos e información compartida están blindados?',
-    answer: 'Absolutamente. Toda consulta y documento compartido está protegido bajo el Secreto Profesional Abogado-Cliente y regido por las normativas éticas del ejercicio de la abogacía en Colombia.'
+    category: 'Representación',
+    question: '¿Es obligatoria la presencia de un abogado en Notaría?',
+    answer: 'Sí. Para la firma del acuerdo notarial de divorcio y la liquidación de la sociedad conyugal, la ley colombiana exige la asistencia y firma de un Abogado titulado.'
   }
 ];

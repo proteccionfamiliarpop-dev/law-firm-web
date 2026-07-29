@@ -1,119 +1,118 @@
-﻿import { Scale, Phone, Mail, MapPin, Shield, Clock, MessageSquare } from 'lucide-react';
+import { Shield, Phone, Mail, MapPin, Calendar, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { FIRM_INFO } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Col 1 */}
+    <footer className="bg-[#FAF8F5] text-[#1A1A1A] border-t border-[#E5DFD5]">
+      {/* Top Banner - Deep Emerald Accent */}
+      <div className="bg-[#0B2818] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#071C11]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+          <div className="space-y-2 max-w-2xl">
+            <h3 className="text-2xl font-bold font-serif text-amber-100">
+              Dr. Alexander Solano — Tarjeta Profesional Nº. 182.354 CSJ
+            </h3>
+            <p className="text-xs text-amber-200/80 leading-relaxed font-sans">
+              Abogado, Conciliador, Especialista en Derecho de Familia, Magíster en Derecho y Candidato a Doctor en Derecho. Litigio de alta complejidad en Popayán, Cali y Colombia.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20solicitar%20asesor%C3%ADa%20legal%20en%20Popay%C3%A1n/Cali"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-[#FAF8F5] hover:bg-[#F3EFEA] text-[#0B2818] font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all shrink-0 flex items-center gap-2"
+          >
+            <Calendar className="w-4 h-4 text-[#0B2818]" />
+            Agendar Consulta Privada
+          </a>
+        </div>
+      </div>
+
+      {/* Main Footer Info Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          
+          {/* Brand Column */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-slate-950">
-                <Scale className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#0B2818] flex items-center justify-center text-amber-200 font-serif font-bold text-xl">
+                PF
               </div>
-              <span className="text-lg font-bold text-white font-serif tracking-tight">
-                PROTECCIÓN FAMILIAR
+              <span className="font-serif text-xl font-bold text-[#1A1A1A]">
+                Protección Familiar
               </span>
             </div>
-            <p className="text-xs text-amber-300 font-semibold">
-              Dirigido por el Dr. Alexander Solano • Cand. Doctor en Derecho
+            <p className="text-xs text-[#555555] leading-relaxed">
+              Firma boutique especializada en la gestión patrimonial y emocional de la familia en el Cauca y Valle del Cauca.
             </p>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              {FIRM_INFO.description}
-            </p>
-            <div className="flex items-center gap-2 text-xs text-amber-400/90 font-medium bg-amber-500/10 border border-amber-500/20 px-3 py-2 rounded-lg w-fit">
-              <Shield className="w-4 h-4 text-amber-400" />
-              Firma Colegiada & Conciliadores Oficiales
+            <div className="text-[11px] font-semibold text-[#0B2818]">
+              Dominio Oficial: <span className="underline">proteccionfamiliar.co</span>
             </div>
           </div>
 
-          {/* Col 2 */}
-          <div>
-            <h4 className="text-white font-semibold text-sm tracking-wider uppercase mb-4 font-serif">
-              Servicios en Popayán & Cali
+          {/* Quick Links */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-[#0B2818] uppercase tracking-wider font-serif">
+              Nuestra Especialidad
             </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li><a href="#servicios" className="hover:text-amber-400 transition-colors">Derecho de Familia & Sucesiones</a></li>
-              <li><a href="#servicios" className="hover:text-amber-400 transition-colors">Divorcios & Liquidación Conyugal</a></li>
-              <li><a href="#servicios" className="hover:text-amber-400 transition-colors">Filiación, Paternidad & Alimentos</a></li>
-              <li><a href="#servicios" className="hover:text-amber-400 transition-colors">Contratos Civiles & Inmobiliarios</a></li>
-              <li><a href="#servicios" className="hover:text-amber-400 transition-colors">Defensa Penal 24/7 & Tutelas</a></li>
-              <li><a href="#servicios" className="hover:text-amber-400 transition-colors">Conciliación en Derecho</a></li>
+            <ul className="space-y-2 text-xs text-[#555555]">
+              <li><a href="#servicios" className="hover:text-[#0B2818] transition-colors">Divorcio por Mutuo Acuerdo</a></li>
+              <li><a href="#servicios" className="hover:text-[#0B2818] transition-colors">Protección Patrimonial & Capitulaciones</a></li>
+              <li><a href="#servicios" className="hover:text-[#0B2818] transition-colors">Custodia & Régimen de Alimentos</a></li>
+              <li><a href="#servicios" className="hover:text-[#0B2818] transition-colors">Sucesiones & Impugnación Judicial</a></li>
             </ul>
           </div>
 
-          {/* Col 3 */}
-          <div>
-            <h4 className="text-white font-semibold text-sm tracking-wider uppercase mb-4 font-serif">
-              Sede Popayán & Contacto
+          {/* Contact Details */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-[#0B2818] uppercase tracking-wider font-serif">
+              Sede Principal Popayán
             </h4>
-            <ul className="space-y-3 text-xs">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+            <div className="space-y-2.5 text-xs text-[#555555]">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#0B2818] shrink-0 mt-0.5" />
                 <span>{FIRM_INFO.address}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-[#0B2818] shrink-0" />
+                <span>{FIRM_INFO.phone}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#0B2818] shrink-0" />
+                <span>contacto@proteccionfamiliar.co</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Legal Directory Popayán */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-[#0B2818] uppercase tracking-wider font-serif">
+              Entidades de Popayán
+            </h4>
+            <ul className="space-y-2 text-xs text-[#555555]">
+              <li className="flex items-center justify-between">
+                <span>Palacio de Justicia Popayán</span>
+                <span className="text-[10px] bg-[#E5DFD5] text-[#1A1A1A] px-2 py-0.5 rounded font-semibold">Juzgados</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={'tel:' + FIRM_INFO.phone.replace(/\s+/g, '')} className="hover:text-white transition-colors">{FIRM_INFO.phone}</a>
+              <li className="flex items-center justify-between">
+                <span>Notarías 1, 2 y 3 de Popayán</span>
+                <span className="text-[10px] bg-[#E5DFD5] text-[#1A1A1A] px-2 py-0.5 rounded font-semibold">Notarial</span>
               </li>
-              <li className="flex items-center gap-3">
-                <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a
-                  href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20deseo%20solicitar%20asesor%C3%ADa%20legal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:underline font-semibold"
-                >
-                  WhatsApp: +57 315 354 0285
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={'mailto:' + FIRM_INFO.email} className="hover:text-white transition-colors">{FIRM_INFO.email}</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>{FIRM_INFO.workingHours}</span>
+              <li className="flex items-center justify-between">
+                <span>ICBF Seccional Cauca</span>
+                <span className="text-[10px] bg-[#E5DFD5] text-[#1A1A1A] px-2 py-0.5 rounded font-semibold">Menores</span>
               </li>
             </ul>
           </div>
 
-          {/* Col 4 */}
-          <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4">
-            <div>
-              <h4 className="text-amber-400 font-bold text-sm mb-2 flex items-center gap-2">
-                <Phone className="w-4 h-4 animate-bounce" /> WhatsApp & Urgencias 24/7
-              </h4>
-              <p className="text-xs text-slate-300 mb-2">
-                Atención jurídica inmediata en Popayán, Cali y todo el Suroccidente colombiano.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <a
-                href="https://wa.me/573153540285?text=Hola%20Dr.%20Alexander%20Solano,%20tengo%20una%20emergencia%20legal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 text-center text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2 uppercase tracking-wide"
-              >
-                <MessageSquare className="w-4 h-4" /> WhatsApp Directo
-              </a>
-              <a
-                href={'tel:' + FIRM_INFO.phone.replace(/\s+/g, '')}
-                className="w-full py-2.5 px-4 text-center text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow-md transition-colors block uppercase tracking-wide"
-              >
-                Llamar: {FIRM_INFO.phone}
-              </a>
-            </div>
-          </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} {FIRM_INFO.name} — Dr. Alexander Solano. Popayán & Cali, Colombia.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-slate-400 transition-colors">Aviso de Privacidad</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Términos de Servicio</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">Código de Ética</a>
+        {/* Bottom Rights Bar */}
+        <div className="mt-12 pt-8 border-t border-[#E5DFD5] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#666666]">
+          <p>© 2026 Protección Familiar. Todos los derechos reservados. Abogados de Familia en Popayán y Cali, Colombia.</p>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-[#0B2818]">Aviso Legal</a>
+            <a href="#" className="hover:text-[#0B2818]">Política de Privacidad</a>
+            <a href="#" className="hover:text-[#0B2818]">Sucursal Cali</a>
           </div>
         </div>
       </div>
